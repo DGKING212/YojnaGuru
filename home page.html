@@ -1,0 +1,1679 @@
+<!DOCTYPE html>
+<html lang="hi-IN" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="भारत सरकार की सभी योजनाओं की पूरी जानकारी - प्रधानमंत्री योजनाएं, राज्य सरकार योजनाएं, आवेदन प्रक्रिया और लाभ">
+    <meta name="keywords" content="सरकारी योजना, PM योजना, राज्य योजना, आवेदन फॉर्म, योजना लाभ">
+    <meta name="author" content="YojanaGuru Team">
+    <meta name="robots" content="index, follow">
+    <title>YojanaGuru - सरकारी योजनाओं की पूरी जानकारी</title>
+    <link rel="canonical" href="https://yojanaguru.com">
+    <link rel="icon" type="image/x-icon" href="/assets/images/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "YojanaGuru",
+        "url": "https://yojanaguru.com",
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://yojanaguru.com/blog/?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+        }
+    }
+    </script>
+    <style>
+    /* Base Styles */
+    :root {
+      --primary-color: #2E7D32;
+      --primary-dark: #1B5E20;
+      --primary-light: #81C784;
+      --secondary-color: #FF9800;
+      --dark-color: #263238;
+      --light-color: #f5f5f5;
+      --gray-color: #757575;
+      --white: #ffffff;
+      --black: #000000;
+      --font-main: 'Noto Sans Devanagari', sans-serif;
+      --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-main);
+      line-height: 1.6;
+      color: var(--dark-color);
+      background-color: var(--white);
+      direction: ltr;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    .section-padding {
+      padding: 80px 0;
+    }
+
+    .bg-light {
+      background-color: var(--light-color);
+    }
+
+    .bg-primary {
+      background-color: var(--primary-color);
+      color: var(--white);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: var(--primary-color);
+      color: var(--white);
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: var(--transition);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .btn:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-light {
+      background-color: var(--white);
+      color: var(--primary-color);
+    }
+
+    .btn-light:hover {
+      background-color: var(--light-color);
+    }
+
+    /* Header Styles */
+    .main-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: var(--white);
+      box-shadow: var(--box-shadow);
+      z-index: 1000;
+      padding: 15px 0;
+    }
+
+    .header-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 40px;
+    }
+
+    .main-nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    .main-nav li {
+      position: relative;
+      margin-left: 20px;
+    }
+
+    .main-nav a {
+      color: var(--dark-color);
+      text-decoration: none;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      transition: var(--transition);
+    }
+
+    .main-nav a i {
+      margin-right: 5px;
+    }
+
+    .main-nav a:hover,
+    .main-nav a.active {
+      color: var(--primary-color);
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: var(--white);
+      box-shadow: var(--box-shadow);
+      border-radius: 4px;
+      padding: 10px 0;
+      min-width: 200px;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 100;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .dropdown-menu li {
+      margin: 0;
+    }
+
+    .dropdown-menu a {
+      padding: 8px 20px;
+      display: block;
+    }
+
+    .header-actions a {
+      margin-left: 15px;
+      color: var(--dark-color);
+      font-size: 18px;
+    }
+
+    .mobile-menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 21px;
+      cursor: pointer;
+    }
+
+    .mobile-menu-toggle span {
+      display: block;
+      height: 3px;
+      width: 100%;
+      background-color: var(--dark-color);
+      transition: var(--transition);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      position: relative;
+      height: 600px;
+      display: flex;
+      align-items: center;
+      background: url('/assets/images/hero-bg.jpg') no-repeat center center/cover;
+      margin-top: 70px;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      color: var(--white);
+      max-width: 800px;
+    }
+
+    .hero-content h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      line-height: 1.3;
+    }
+
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    .search-form {
+      margin-bottom: 30px;
+    }
+
+    .search-input-group {
+      display: flex;
+      max-width: 600px;
+    }
+
+    .search-input-group input {
+      flex: 1;
+      padding: 15px;
+      border: none;
+      border-radius: 4px 0 0 4px;
+      font-size: 1rem;
+    }
+
+    .search-input-group button {
+      padding: 0 20px;
+      border-radius: 0 4px 4px 0;
+      font-weight: 500;
+    }
+
+    .quick-links {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .quick-links span {
+      margin-right: 10px;
+    }
+
+    .quick-links a {
+      color: var(--white);
+      margin-right: 15px;
+      text-decoration: none;
+      border-bottom: 1px dashed var(--white);
+      padding-bottom: 2px;
+    }
+
+    /* State Scheme Tabs */
+    .scheme-type-tabs {
+      margin: 20px 0;
+    }
+
+    .scheme-type-tabs .tabs-header {
+      display: flex;
+      border-bottom: none;
+      margin-bottom: 15px;
+      justify-content: center;
+    }
+
+    .scheme-type-tabs .tab-btn {
+      padding: 10px 25px;
+      font-size: 1rem;
+      background: rgba(255,255,255,0.2);
+      border: none;
+      color: var(--white);
+      cursor: pointer;
+      margin: 0 5px;
+      border-radius: 4px;
+      transition: var(--transition);
+    }
+
+    .scheme-type-tabs .tab-btn.active {
+      background: var(--white);
+      color: var(--primary-color);
+      font-weight: 500;
+    }
+
+    .state-selection {
+      text-align: center;
+      margin-top: 15px;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .state-selection select {
+      padding: 8px 15px;
+      border-radius: 4px;
+      border: none;
+      margin-left: 10px;
+      background-color: var(--white);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* State Grid */
+    .state-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .state-card {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      text-align: center;
+      color: var(--white);
+      text-decoration: none;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+      height: 180px;
+    }
+
+    .state-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .state-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.7);
+    }
+
+    .state-card h3 {
+      position: absolute;
+      bottom: 40px;
+      left: 0;
+      right: 0;
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    .state-card p {
+      position: absolute;
+      bottom: 15px;
+      left: 0;
+      right: 0;
+      margin: 0;
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    /* Featured Schemes */
+    .section-header {
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .section-header h2 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: var(--primary-color);
+    }
+
+    .view-all {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .schemes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .scheme-card {
+      background-color: var(--white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+    }
+
+    .scheme-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .scheme-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .scheme-info {
+      padding: 20px;
+    }
+
+    .scheme-info h3 {
+      margin-bottom: 10px;
+      color: var(--primary-color);
+    }
+
+    .scheme-info p {
+      margin-bottom: 15px;
+      color: var(--gray-color);
+    }
+
+    .scheme-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+    }
+
+    /* Categories Grid */
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .category-card {
+      background-color: var(--white);
+      padding: 20px;
+      border-radius: 8px;
+      text-align: center;
+      text-decoration: none;
+      color: var(--dark-color);
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+    }
+
+    .category-card:hover {
+      transform: translateY(-5px);
+      background-color: var(--primary-color);
+      color: var(--white);
+    }
+
+    .category-icon {
+      margin-bottom: 15px;
+    }
+
+    .category-card h3 {
+      margin-bottom: 5px;
+    }
+
+    /* Tabs */
+    .tabs-header {
+      display: flex;
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 20px;
+    }
+
+    .tab-btn {
+      padding: 10px 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      color: var(--gray-color);
+      position: relative;
+    }
+
+    .tab-btn.active {
+      color: var(--primary-color);
+      font-weight: 500;
+    }
+
+    .tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--primary-color);
+    }
+
+    .tab-pane {
+      display: none;
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+
+    .updates-list {
+      display: grid;
+      gap: 15px;
+    }
+
+    .update-item {
+      padding: 15px;
+      background-color: var(--white);
+      border-radius: 4px;
+      box-shadow: var(--box-shadow);
+    }
+
+    /* How It Works */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .step-card {
+      text-align: center;
+      padding: 30px 20px;
+      background-color: var(--white);
+      border-radius: 8px;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+    }
+
+    .step-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .step-number {
+      width: 50px;
+      height: 50px;
+      background-color: var(--primary-color);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin: 0 auto 20px;
+    }
+
+    /* Testimonials */
+    .testimonials-slider {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .testimonial-card {
+      background-color: var(--white);
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: var(--box-shadow);
+      margin: 0 15px;
+    }
+
+    .testimonial-content {
+      margin-bottom: 20px;
+      font-style: italic;
+      position: relative;
+    }
+
+    .testimonial-content::before {
+      content: '"';
+      font-size: 3rem;
+      color: var(--primary-light);
+      position: absolute;
+      top: -15px;
+      left: -10px;
+      opacity: 0.5;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+    }
+
+    .testimonial-author img {
+      border-radius: 50%;
+      margin-right: 15px;
+    }
+
+    .author-info h4 {
+      margin-bottom: 5px;
+    }
+
+    /* Newsletter */
+    .newsletter-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .newsletter-content {
+      flex: 1;
+      min-width: 300px;
+      margin-bottom: 20px;
+    }
+
+    .newsletter-form {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .form-group {
+      display: flex;
+      margin-bottom: 15px;
+    }
+
+    .form-group input {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      border-radius: 4px 0 0 4px;
+    }
+
+    .form-group button {
+      border-radius: 0 4px 4px 0;
+    }
+
+    .form-check {
+      display: flex;
+      align-items: center;
+    }
+
+    .form-check input {
+      margin-right: 10px;
+    }
+
+    .form-check a {
+      color: var(--white);
+      text-decoration: underline;
+    }
+
+    /* Footer */
+    .main-footer {
+      background-color: var(--dark-color);
+      color: var(--white);
+      padding: 60px 0 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    .footer-col h3 {
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+    }
+
+    .footer-logo img {
+      margin-bottom: 15px;
+    }
+
+    .footer-col p {
+      margin-bottom: 20px;
+      opacity: 0.8;
+    }
+
+    .social-links {
+      display: flex;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 35px;
+      height: 35px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      margin-right: 10px;
+      color: var(--white);
+      transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      background-color: var(--primary-color);
+    }
+
+    .footer-col ul {
+      list-style: none;
+    }
+
+    .footer-col li {
+      margin-bottom: 10px;
+    }
+
+    .footer-col a {
+      color: var(--white);
+      opacity: 0.8;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer-col a:hover {
+      opacity: 1;
+      color: var(--primary-light);
+    }
+
+    .contact-info li {
+      display: flex;
+      margin-bottom: 15px;
+    }
+
+    .contact-info i {
+      margin-right: 10px;
+      color: var(--primary-light);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-links a {
+      margin-left: 20px;
+      color: var(--white);
+      opacity: 0.8;
+    }
+
+    /* Loading Spinner */
+    .loading-spinner {
+      text-align: center;
+      padding: 40px 0;
+    }
+
+    .spinner {
+      width: 50px;
+      height: 50px;
+      border: 5px solid rgba(46, 125, 50, 0.2);
+      border-radius: 50%;
+      border-top-color: var(--primary-color);
+      animation: spin 1s ease-in-out infinite;
+      margin: 0 auto 15px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .main-nav {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 80%;
+        height: calc(100vh - 70px);
+        background-color: var(--white);
+        box-shadow: var(--box-shadow);
+        transition: var(--transition);
+        z-index: 999;
+      }
+
+      .main-nav.active {
+        left: 0;
+      }
+
+      .main-nav ul {
+        flex-direction: column;
+        padding: 20px;
+      }
+
+      .main-nav li {
+        margin: 0 0 15px 0;
+      }
+
+      .dropdown-menu {
+        position: static;
+        box-shadow: none;
+        opacity: 1;
+        visibility: visible;
+        display: none;
+        padding-left: 15px;
+      }
+
+      .dropdown:hover .dropdown-menu {
+        display: block;
+      }
+
+      .mobile-menu-toggle {
+        display: flex;
+      }
+
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+
+      .section-padding {
+        padding: 60px 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-section {
+        height: 500px;
+        margin-top: 60px;
+      }
+
+      .hero-content {
+        text-align: center;
+      }
+
+      .search-input-group {
+        flex-direction: column;
+      }
+
+      .search-input-group input {
+        border-radius: 4px;
+        margin-bottom: 10px;
+      }
+
+      .search-input-group button {
+        border-radius: 4px;
+        width: 100%;
+      }
+
+      .quick-links {
+        justify-content: center;
+      }
+
+      .scheme-type-tabs .tabs-header {
+        flex-direction: column;
+      }
+
+      .scheme-type-tabs .tab-btn {
+        margin: 5px 0;
+        width: 100%;
+      }
+
+      .state-selection {
+        margin-top: 10px;
+      }
+
+      .newsletter-wrapper {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .newsletter-form {
+        width: 100%;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-links {
+        margin-top: 15px;
+      }
+
+      .footer-links a {
+        margin: 0 10px;
+      }
+    }
+    </style>
+</head>
+<body>
+    <!-- Skip to Content Link -->
+    <a href="#main-content" class="skip-link">मुख्य सामग्री पर जाएं</a>
+
+    <!-- Header Partial -->
+    <header class="main-header">
+        <div class="container">
+            <div class="header-wrapper">
+                <a href="/" class="logo">
+                    <img src="/assets/images/logos/logo-main.svg" alt="YojanaGuru Logo" width="180" height="40">
+                </a>
+                
+                <div class="mobile-menu-toggle" id="mobileMenuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                
+                <nav class="main-nav" id="mainNav" aria-label="मुख्य नेविगेशन">
+                    <ul>
+                        <li><a href="/" class="active"><i class="fas fa-home"></i> होम</a></li>
+                        <li class="dropdown">
+                            <a href="/blog/"><i class="fas fa-list"></i> योजनाएं <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/blog/central-government/">केंद्र सरकार</a></li>
+                                <li><a href="/blog/state-government/">राज्य सरकार</a></li>
+                                <li><a href="/blog/latest-schemes/">नवीनतम योजनाएं</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/about.html"><i class="fas fa-info-circle"></i> हमारे बारे में</a></li>
+                        <li><a href="/contact.html"><i class="fas fa-phone"></i> संपर्क करें</a></li>
+                    </ul>
+                </nav>
+                
+                <div class="header-actions">
+                    <a href="/search/" class="search-btn" aria-label="Search"><i class="fas fa-search"></i></a>
+                    <a href="/admin/login.html" class="admin-btn" aria-label="Admin Login"><i class="fas fa-user-shield"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>भारत सरकार की 1000+ योजनाओं की पूरी जानकारी</h1>
+                <p>सही समय पर सही योजना का लाभ उठाएं</p>
+                
+                <div class="hero-search">
+                    <form action="/blog/" method="GET" class="search-form" aria-label="योजना खोजें">
+                        <div class="search-input-group">
+                            <input type="text" name="q" placeholder="योजना खोजें (जैसे: आवास, छात्रवृत्ति)" required>
+                            <button type="submit" class="search-btn">
+                                <i class="fas fa-search"></i> खोजें
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="scheme-type-tabs">
+                    <div class="tabs-header">
+                        <button class="tab-btn active" data-tab="central">केंद्र सरकार योजनाएं</button>
+                        <button class="tab-btn" data-tab="state">राज्य सरकार योजनाएं</button>
+                    </div>
+                    
+                    <div class="state-selection" id="stateSelection" style="display:none;">
+                        <label for="stateSelect"><i class="fas fa-map-marker-alt"></i> अपना राज्य चुनें:</label>
+                        <select id="stateSelect">
+                            <option value="">सभी राज्य</option>
+                            <option value="up">उत्तर प्रदेश</option>
+                            <option value="mh">महाराष्ट्र</option>
+                            <option value="br">बिहार</option>
+                            <option value="wb">पश्चिम बंगाल</option>
+                            <option value="mp">मध्य प्रदेश</option>
+                            <option value="tn">तमिलनाडु</option>
+                            <option value="rj">राजस्थान</option>
+                            <option value="ka">कर्नाटक</option>
+                            <option value="gj">गुजरात</option>
+                            <option value="ap">आंध्र प्रदेश</option>
+                            <option value="od">ओडिशा</option>
+                            <option value="ts">तेलंगाना</option>
+                            <option value="kl">केरल</option>
+                            <option value="jh">झारखंड</option>
+                            <option value="as">असम</option>
+                            <option value="pb">पंजाब</option>
+                            <option value="hr">हरियाणा</option>
+                            <option value="ct">छत्तीसगढ़</option>
+                            <option value="uk">उत्तराखंड</option>
+                            <option value="hp">हिमाचल प्रदेश</option>
+                            <option value="tr">त्रिपुरा</option>
+                            <option value="mn">मणिपुर</option>
+                            <option value="nl">नागालैंड</option>
+                            <option value="ga">गोवा</option>
+                            <option value="mz">मिजोरम</option>
+                            <option value="sk">सिक्किम</option>
+                            <option value="ar">अरुणाचल प्रदेश</option>
+                            <option value="meghalaya">मेघालय</option>
+                            <option value="dl">दिल्ली</option>
+                            <option value="py">पुदुच्चेरी</option>
+                            <option value="ch">चंडीगढ़</option>
+                            <option value="an">अंडमान और निकोबार</option>
+                            <option value="dn">दादरा और नगर हवेली</option>
+                            <option value="ld">लक्षद्वीप</option>
+                            <option value="jk">जम्मू और कश्मीर</option>
+                            <option value="la">लद्दाख</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="quick-links" id="quickLinks">
+                    <span>त्वरित लिंक:</span>
+                    <a href="/blog/pm-kisan-yojana/">PM किसान</a>
+                    <a href="/blog/ayushman-bharat/">आयुष्मान भारत</a>
+                    <a href="/blog/ujjwala-yojana/">उज्ज्वला योजना</a>
+                </div>
+                
+                <div class="state-quick-links" id="stateQuickLinks" style="display:none;">
+                    <span>राज्य योजनाएं:</span>
+                    <a href="#" id="upLink">उत्तर प्रदेश योजनाएं</a>
+                    <a href="#" id="mhLink">महाराष्ट्र योजनाएं</a>
+                    <a href="#" id="brLink">बिहार योजनाएं</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content" id="main-content">
+        <!-- Featured Schemes -->
+        <section class="featured-schemes section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2>प्रमुख योजनाएं</h2>
+                    <a href="/blog/" class="view-all">सभी देखें <i class="fas fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="schemes-grid" id="featuredSchemes">
+                    <!-- Dynamic content loaded via AJAX -->
+                    <div class="loading-spinner">
+                        <div class="spinner"></div>
+                        <p>योजनाएं लोड हो रही हैं...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- State Schemes Section -->
+        <section class="state-schemes section-padding bg-light">
+            <div class="container">
+                <div class="section-header">
+                    <h2>राज्यवार योजनाएं</h2>
+                    <p>अपने राज्य की विशेष योजनाओं की जानकारी प्राप्त करें</p>
+                </div>
+                
+                <div class="state-grid">
+                    <a href="/blog/up-schemes/" class="state-card">
+                        <img src="/assets/images/states/up.jpg" alt="उत्तर प्रदेश योजनाएं">
+                        <h3>उत्तर प्रदेश</h3>
+                        <p>85+ योजनाएं</p>
+                    </a>
+                    
+                    <a href="/blog/mh-schemes/" class="state-card">
+                        <img src="/assets/images/states/mh.jpg" alt="महाराष्ट्र योजनाएं">
+                        <h3>महाराष्ट्र</h3>
+                        <p>72+ योजनाएं</p>
+                    </a>
+                    
+                    <a href="/blog/br-schemes/" class="state-card">
+                        <img src="/assets/images/states/br.jpg" alt="बिहार योजनाएं">
+                        <h3>बिहार</h3>
+                        <p>68+ योजनाएं</p>
+                    </a>
+                    
+                    <a href="/blog/wb-schemes/" class="state-card">
+                        <img src="/assets/images/states/wb.jpg" alt="पश्चिम बंगाल योजनाएं">
+                        <h3>पश्चिम बंगाल</h3>
+                        <p>55+ योजनाएं</p>
+                    </a>
+                    
+                    <a href="/blog/mp-schemes/" class="state-card">
+                        <img src="/assets/images/states/mp.jpg" alt="मध्य प्रदेश योजनाएं">
+                        <h3>मध्य प्रदेश</h3>
+                        <p>60+ योजनाएं</p>
+                    </a>
+                    
+                    <a href="/blog/rj-schemes/" class="state-card">
+                        <img src="/assets/images/states/rj.jpg" alt="राजस्थान योजनाएं">
+                        <h3>राजस्थान</h3>
+                        <p>58+ योजनाएं</p>
+                    </a>
+                </div>
+                
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="/blog/state-government/" class="btn">सभी राज्यों की योजनाएं देखें</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Scheme Categories -->
+        <section class="scheme-categories section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2>योजना श्रेणियाँ</h2>
+                    <p>अपनी आवश्यकता के अनुसार योजना खोजें</p>
+                </div>
+                
+                <div class="categories-grid">
+                    <a href="/blog/agriculture-schemes/" class="category-card">
+                        <div class="category-icon">
+                            <img src="/assets/images/icons/agriculture.svg" alt="कृषि योजनाएं" width="40" height="40">
+                        </div>
+                        <h3>कृषि योजनाएं</h3>
+                        <p>50+ योजनाएं</p>
+                    </a>
+                    
+                    <a href="/blog/education-schemes/" class="category-card">
+                        <div class="category-icon">
+                            <img src="/assets/images/icons/education.svg" alt="शिक्षा योजनाएं" width="40" height="40">
+                        </div>
+                        <h3>शिक्षा योजनाएं</h3>
+                        <p>120+ योजनाएं</p>
+                    </a>
+                    
+                    <a href="/blog/housing-schemes/" class="category-card">
+                        <div class="category-icon">
+                            <img src="/assets/images/icons/housing.svg" alt="आवास योजनाएं" width="40" height="40">
+                        </div>
+                        <h3>आवास योजनाएं</h3>
+                        <p>75+ योजनाएं</p>
+                    </a>
+                    
+                    <a href="/blog/health-schemes/" class="category-card">
+                        <div class="category-icon">
+                            <img src="/assets/images/icons/health.svg" alt="स्वास्थ्य योजनाएं" width="40" height="40">
+                        </div>
+                        <h3>स्वास्थ्य योजनाएं</h3>
+                        <p>90+ योजनाएं</p>
+                    </a>
+                    
+                    <a href="/blog/women-schemes/" class="category-card">
+                        <div class="category-icon">
+                            <img src="/assets/images/icons/women.svg" alt="महिला योजनाएं" width="40" height="40">
+                        </div>
+                        <h3>महिला योजनाएं</h3>
+                        <p>60+ योजनाएं</p>
+                    </a>
+                    
+                    <a href="/blog/business-schemes/" class="category-card">
+                        <div class="category-icon">
+                            <img src="/assets/images/icons/business.svg" alt="व्यवसाय योजनाएं" width="40" height="40">
+                        </div>
+                        <h3>व्यवसाय योजनाएं</h3>
+                        <p>45+ योजनाएं</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Latest Updates -->
+        <section class="latest-updates section-padding bg-light">
+            <div class="container">
+                <div class="section-header">
+                    <h2>नवीनतम अपडेट</h2>
+                    <p>सरकारी योजनाओं में हुए नए बदलाव</p>
+                </div>
+                
+                <div class="updates-tabs">
+                    <div class="tabs-header">
+                        <button class="tab-btn active" data-tab="central">केंद्र सरकार</button>
+                        <button class="tab-btn" data-tab="state">राज्य सरकार</button>
+                        <button class="tab-btn" data-tab="notifications">सूचनाएं</button>
+                    </div>
+                    
+                    <div class="tabs-content">
+                        <div class="tab-pane active" id="central-tab">
+                            <div class="updates-list" id="centralUpdates">
+                                <!-- Dynamic content -->
+                            </div>
+                        </div>
+                        
+                        <div class="tab-pane" id="state-tab">
+                            <div class="updates-list" id="stateUpdates">
+                                <!-- Dynamic content -->
+                            </div>
+                        </div>
+                        
+                        <div class="tab-pane" id="notifications-tab">
+                            <div class="updates-list" id="notificationUpdates">
+                                <!-- Dynamic content -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- How It Works -->
+        <section class="how-it-works section-padding">
+            <div class="container">
+                <div class="section-header">
+                    <h2>YojanaGuru कैसे काम करता है?</h2>
+                    <p>3 आसान चरणों में योजना की पूरी जानकारी प्राप्त करें</p>
+                </div>
+                
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3>योजना खोजें</h3>
+                        <p>हमारे डेटाबेस में 1000+ योजनाओं में से अपनी आवश्यकता के अनुसार योजना खोजें</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3>विवरण पढ़ें</h3>
+                        <p>योजना की पूरी जानकारी, पात्रता, आवश्यक दस्तावेज और आवेदन प्रक्रिया समझें</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h3>लाभ उठाएं</h3>
+                        <p>सीधे आधिकारिक वेबसाइट पर आवेदन करें और योजना का लाभ प्राप्त करें</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Testimonials -->
+        <section class="testimonials section-padding bg-light">
+            <div class="container">
+                <div class="section-header">
+                    <h2>हमारे उपयोगकर्ता क्या कहते हैं?</h2>
+                    <p>10,000+ लोगों ने YojanaGuru के माध्यम से योजनाओं का लाभ उठाया है</p>
+                </div>
+                
+                <div class="testimonials-slider">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="rating" aria-label="5 में से 5 स्टार रेटिंग">
+                              <i class="fas fa-star" aria-hidden="true"></i>
+                              <i class="fas fa-star" aria-hidden="true"></i>
+                              <i class="fas fa-star" aria-hidden="true"></i>
+                              <i class="fas fa-star" aria-hidden="true"></i>
+                              <i class="fas fa-star" aria-hidden="true"></i>
+                            </div>
+                            <p>"YojanaGuru की वजह से मुझे PM किसान योजना के बारे में पता चला और मुझे 6,000 रुपये सालाना मिल रहे हैं।"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="/assets/images/testimonials/user1.jpg" alt="रमेश कुमार" width="50" height="50">
+                            <div class="author-info">
+                                <h4>रमेश कुमार</h4>
+                                <span>किसान, उत्तर प्रदेश</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="rating" aria-label="5 में से 5 स्टार रेटिंग">
+                              <i class="fas fa-star" aria-hidden="true"></i>
+                              <i class="fas fa-star" aria-hidden="true"></i>
+                              <i class="fas fa-star" aria-hidden="true"></i>
+                              <i class="fas fa-star" aria-hidden="true"></i>
+                              <i class="fas fa-star" aria-hidden="true"></i>
+                            </div>
+                            <p>"मेरी बेटी के लिए छात्रवृत्ति योजना का पता इसी वेबसाइट से चला। आभार!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="/assets/images/testimonials/user2.jpg" alt="सुनीता देवी" width="50" height="50">
+                            <div class="author-info">
+                                <h4>सुनीता देवी</h4>
+                                <span>अध्यापिका, बिहार</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <div class="rating" aria-label="5 में से 5 स्टार रेटिंग">
+                              <i class="fas fa-star" aria-hidden="true"></i>
+                              <i class="fas fa-star" aria-hidden="true"></i>
+                              <i class="fas fa-star" aria-hidden="true"></i>
+                              <i class="fas fa-star" aria-hidden="true"></i>
+                              <i class="fas fa-star" aria-hidden="true"></i>
+                            </div>
+                            <p>"उज्ज्वला योजना के लिए आवेदन करने में YojanaGuru ने बहुत मदद की। सभी दस्तावेजों की सूची मिल गई।"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="/assets/images/testimonials/user3.jpg" alt="अनिल शर्मा" width="50" height="50">
+                            <div class="author-info">
+                                <h4>अनिल शर्मा</h4>
+                                <span>ड्राइवर, महाराष्ट्र</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Newsletter -->
+        <section class="newsletter-section bg-primary">
+            <div class="container">
+                <div class="newsletter-wrapper">
+                    <div class="newsletter-content">
+                        <h3>नवीनतम योजनाओं की सूचना पाएं</h3>
+                        <p>हमारे न्यूज़लेटर की सदस्यता लें और नई योजनाओं की जानकारी सीधे अपने इनबॉक्स में प्राप्त करें</p>
+                    </div>
+                    
+                    <form class="newsletter-form" id="newsletterForm" aria-label="न्यूज़लेटर सदस्यता">
+                        <div class="form-group">
+                            <label for="newsletterEmail" class="sr-only">ईमेल पता</label>
+                            <input type="email" id="newsletterEmail" placeholder="आपका ईमेल पता" required>
+                            <button type="submit" class="btn btn-light">
+                              <span class="button-text">सब्सक्राइब करें</span>
+                              <span class="loading-icon" aria-hidden="true"><i class="fas fa-spinner fa-spin"></i></span>
+                            </button>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" id="agreeTerms" required>
+                            <label for="agreeTerms">मैं YojanaGuru की <a href="/privacy-policy">गोपनीयता नीति</a> से सहमत हूँ</label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col about-col">
+                    <a href="/" class="footer-logo">
+                        <img src="/assets/images/logos/logo-white.svg" alt="YojanaGuru Logo" width="160" height="35">
+                    </a>
+                    <p>YojanaGuru भारत सरकार और राज्य सरकारों की योजनाओं की पूरी जानकारी प्रदान करने के लिए समर्पित एक प्लेटफॉर्म है।</p>
+                    
+                    <div class="social-links">
+                        <a href="https://facebook.com/yojanaguru" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com/yojanaguru" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://instagram.com/yojanaguru" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://youtube.com/yojanaguru" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://wa.me/919876543210" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col links-col">
+                    <h3>त्वरित लिंक</h3>
+                    <ul>
+                        <li><a href="/">होम</a></li>
+                        <li><a href="/blog/">सभी योजनाएं</a></li>
+                        <li><a href="/blog/central-government/">केंद्र सरकार योजनाएं</a></li>
+                        <li><a href="/blog/state-government/">राज्य सरकार योजनाएं</a></li>
+                        <li><a href="/blog/latest-schemes/">नवीनतम योजनाएं</a></li>
+                        <li><a href="/about.html">हमारे बारे में</a></li>
+                        <li><a href="/contact.html">संपर्क करें</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col categories-col">
+                    <h3>योजना श्रेणियाँ</h3>
+                    <ul>
+                        <li><a href="/blog/agriculture-schemes/">कृषि योजनाएं</a></li>
+                        <li><a href="/blog/education-schemes/">शिक्षा योजनाएं</a></li>
+                        <li><a href="/blog/housing-schemes/">आवास योजनाएं</a></li>
+                        <li><a href="/blog/health-schemes/">स्वास्थ्य योजनाएं</a></li>
+                        <li><a href="/blog/women-schemes/">महिला योजनाएं</a></li>
+                        <li><a href="/blog/business-schemes/">व्यवसाय योजनाएं</a></li>
+                        <li><a href="/blog/sc-st-schemes/">अनुसूचित जाति/जनजाति योजनाएं</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col contact-col">
+                    <h3>संपर्क करें</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>YojanaGuru Technologies, सेक्टर 62, नोएडा, उत्तर प्रदेश 201309</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <a href="tel:+919876543210">+91 98765 43210</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:info@yojanaguru.com">info@yojanaguru.com</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>सोम-शनि: 9:00 AM - 6:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2023 YojanaGuru.com. सभी अधिकार सुरक्षित</p>
+                </div>
+                
+                <div class="footer-links">
+                    <a href="/privacy-policy.html">गोपनीयता नीति</a>
+                    <a href="/terms-conditions.html">नियम और शर्तें</a>
+                    <a href="/disclaimer.html">अस्वीकरण</a>
+                    <a href="/sitemap.html">साइटमैप</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Mobile Menu Toggle
+      const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+      const mainNav = document.getElementById('mainNav');
+      
+      mobileMenuToggle.addEventListener('click', function() {
+        this.classList.toggle('active');
+        mainNav.classList.toggle('active');
+        
+        // Transform hamburger to X
+        const spans = this.querySelectorAll('span');
+        if (mainNav.classList.contains('active')) {
+          spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
+          spans[1].style.opacity = '0';
+          spans[2].style.transform = 'rotate(-45deg) translate(7px, -6px)';
+        } else {
+          spans[0].style.transform = 'none';
+          spans[1].style.opacity = '1';
+          spans[2].style.transform = 'none';
+        }
+      });
+
+      // Scheme Type Tabs
+      const schemeTypeTabs = document.querySelectorAll('.scheme-type-tabs .tab-btn');
+      schemeTypeTabs.forEach(btn => {
+        btn.addEventListener('click', function() {
+          // Remove active class from all buttons
+          schemeTypeTabs.forEach(btn => btn.classList.remove('active'));
+          
+          // Add active class to clicked button
+          this.classList.add('active');
+          
+          // Show/hide state selection
+          const tabType = this.getAttribute('data-tab');
+          const stateSelection = document.getElementById('stateSelection');
+          const quickLinks = document.getElementById('quickLinks');
+          const stateQuickLinks = document.getElementById('stateQuickLinks');
+          
+          if (tabType === 'state') {
+            stateSelection.style.display = 'block';
+            quickLinks.style.display = 'none';
+            stateQuickLinks.style.display = 'flex';
+          } else {
+            stateSelection.style.display = 'none';
+            quickLinks.style.display = 'flex';
+            stateQuickLinks.style.display = 'none';
+          }
+          
+          // Filter schemes based on selection
+          filterSchemesByType(tabType, document.getElementById('stateSelect').value);
+        });
+      });
+
+      function filterSchemesByType(type, state = '') {
+        console.log(`Filtering schemes by: ${type}, State: ${state}`);
+        // Implement your filtering logic here
+        // This could be AJAX calls to different endpoints or filtering existing data
+      }
+
+      // State Selection
+      const stateSelect = document.getElementById('stateSelect');
+      if (stateSelect) {
+        stateSelect.addEventListener('change', function() {
+          const tabType = document.querySelector('.scheme-type-tabs .tab-btn.active').getAttribute('data-tab');
+          filterSchemesByType(tabType, this.value);
+          
+          // Update state quick links
+          if (this.value) {
+            document.getElementById('upLink').href = `/blog/up-schemes/`;
+            document.getElementById('mhLink').href = `/blog/mh-schemes/`;
+            document.getElementById('brLink').href = `/blog/br-schemes/`;
+          }
+        });
+      }
+
+      // Tab Functionality
+      const tabBtns = document.querySelectorAll('.updates-tabs .tab-btn');
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          const tabId = this.getAttribute('data-tab');
+          
+          // Remove active class from all buttons and panes
+          tabBtns.forEach(btn => btn.classList.remove('active'));
+          document.querySelectorAll('.tabs-content .tab-pane').forEach(pane => {
+            pane.classList.remove('active');
+          });
+          
+          // Add active class to clicked button and corresponding pane
+          this.classList.add('active');
+          document.getElementById(`${tabId}-tab`).classList.add('active');
+        });
+      });
+
+      // Testimonial Slider
+      $('.testimonials-slider').owlCarousel({
+        loop: true,
+        margin: 20,
+        nav: true,
+        dots: false,
+        responsive: {
+          0: {
+            items: 1
+          },
+          768: {
+            items: 2
+          },
+          992: {
+            items: 3
+          }
+        }
+      });
+
+      // Load Featured Schemes via AJAX
+      function loadFeaturedSchemes() {
+        fetch('/api/schemes/featured.json')
+          .then(response => response.json())
+          .then(data => {
+            const schemesGrid = document.getElementById('featuredSchemes');
+            schemesGrid.innerHTML = '';
+            
+            data.forEach(scheme => {
+              schemesGrid.innerHTML += `
+                <div class="scheme-card">
+                  <img src="${scheme.image}" alt="${scheme.title}">
+                  <div class="scheme-info">
+                    <h3>${scheme.title}</h3>
+                    <p>${scheme.description}</p>
+                    <div class="scheme-meta">
+                      <span><i class="fas fa-rupee-sign"></i> ${scheme.benefit}</span>
+                      <span><i class="fas fa-calendar-alt"></i> ${scheme.deadline}</span>
+                    </div>
+                  </div>
+                </div>
+              `;
+            });
+          })
+          .catch(error => {
+            console.error('Error loading featured schemes:', error);
+            document.getElementById('featuredSchemes').innerHTML = `
+              <div class="error-message">
+                <p>योजनाएं लोड करने में समस्या आई। कृपया बाद में पुनः प्रयास करें।</p>
+              </div>
+            `;
+          });
+      }
+
+      // Load Updates
+      function loadUpdates() {
+        const tabs = ['central', 'state', 'notifications'];
+        
+        tabs.forEach(tab => {
+          fetch(`/api/updates/${tab}.json`)
+            .then(response => response.json())
+            .then(data => {
+              const updatesList = document.getElementById(`${tab}Updates`);
+              updatesList.innerHTML = '';
+              
+              data.forEach(update => {
+                updatesList.innerHTML += `
+                  <div class="update-item">
+                    <h4>${update.title}</h4>
+                    <p>${update.description}</p>
+                    <small>${update.date}</small>
+                  </div>
+                `;
+              });
+            })
+            .catch(error => {
+              console.error(`Error loading ${tab} updates:`, error);
+              document.getElementById(`${tab}Updates`).innerHTML = `
+                <div class="error-message">
+                  <p>अपडेट लोड करने में समस्या आई।</p>
+                </div>
+              `;
+            });
+        });
+      }
+
+      // Newsletter Form Submission
+      const newsletterForm = document.getElementById('newsletterForm');
+      if (newsletterForm) {
+        newsletterForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          const email = this.querySelector('input[type="email"]').value;
+          const submitBtn = this.querySelector('button[type="submit"]');
+          
+          // Show loading state
+          submitBtn.disabled = true;
+          submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> प्रसंस्करण...';
+          
+          // Simulate API call
+          setTimeout(() => {
+            submitBtn.innerHTML = '<i class="fas fa-check"></i> सब्सक्राइब किया गया';
+            this.reset();
+            
+            // Show success message
+            alert('धन्यवाद! आपको नवीनतम योजनाओं के बारे में सूचित किया जाएगा।');
+            
+            // Reset button after 2 seconds
+            setTimeout(() => {
+              submitBtn.disabled = false;
+              submitBtn.innerHTML = 'सब्सक्राइब करें';
+            }, 2000);
+          }, 1500);
+        });
+      }
+
+      // Initialize functions
+      loadFeaturedSchemes();
+      loadUpdates();
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 70,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    });
+
+    // PWA Service Worker Registration
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+          .then(registration => {
+            console.log('ServiceWorker registration successful');
+          })
+          .catch(err => {
+            console.log('ServiceWorker registration failed: ', err);
+          });
+      });
+    }
+    </script>
+    
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "YojanaGuru",
+        "url": "https://yojanaguru.com",
+        "logo": "https://yojanaguru.com/assets/images/logos/logo-main.svg",
+        "sameAs": [
+            "https://facebook.com/yojanaguru",
+            "https://twitter.com/yojanaguru",
+            "https://instagram.com/yojanaguru",
+            "https://youtube.com/yojanaguru"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+917498802430",
+            "contactType": "customer service",
+            "email": "info@yojanaguru.com",
+            "availableLanguage": "Hindi,Marathi,English"
+        }
+    }
+    </script>
+</body>
+</html>

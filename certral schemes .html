@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>केंद्रीय योजनाएँ | YojanaGuru.com</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #1e40af;
+            --accent: #dc2626;
+            --light: #f8fafc;
+            --dark: #1e293b;
+        }
+        
+        body {
+            font-family: 'Noto Sans Devanagari', 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f1f5f9;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2.5rem 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+        
+        .filter-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+        
+        .filter-btn {
+            padding: 0.6rem 1.2rem;
+            border-radius: 20px;
+            background: white;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .scheme-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--primary);
+        }
+        
+        .scheme-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+        
+        .scheme-header {
+            padding: 1.2rem;
+            font-weight: 700;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: white;
+            color: var(--dark);
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .scheme-body {
+            padding: 1.8rem;
+        }
+        
+        .scheme-icon {
+            font-size: 1.8rem;
+            min-width: 40px;
+            text-align: center;
+        }
+        
+        .section-title {
+            font-weight: 600;
+            color: var(--secondary);
+            margin-top: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .doc-list, .steps-list, .benefits-list {
+            padding-left: 1.5rem;
+            margin: 0.8rem 0;
+        }
+        
+        .doc-list li, .steps-list li, .benefits-list li {
+            margin-bottom: 0.8rem;
+            position: relative;
+        }
+        
+        .doc-list li:before {
+            content: "📄";
+            margin-right: 8px;
+        }
+        
+        .steps-list {
+            counter-reset: step-counter;
+        }
+        
+        .steps-list li {
+            counter-increment: step-counter;
+        }
+        
+        .steps-list li:before {
+            content: counter(step-counter);
+            background: var(--primary);
+            color: white;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-radius: 50%;
+            width: 1.4em;
+            height: 1.4em;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            left: -1.8rem;
+            top: 0.1rem;
+        }
+        
+        .benefits-list li:before {
+            content: "✓";
+            color: var(--accent);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+        
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 1.5rem;
+            gap: 1rem;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--primary);
+            color: white;
+            padding: 0.7rem 1.4rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background: white;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .loading-container {
+            margin-top: 1.5rem;
+            height: 4px;
+            background: #e2e8f0;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        
+        .loading-bar {
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            animation: loading 2s infinite ease-in-out;
+        }
+        
+        @keyframes loading {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 3rem 0;
+            background: var(--dark);
+            color: white;
+            margin-top: 4rem;
+        }
+        
+        .state-dropdown {
+            padding: 0.6rem;
+            border-radius: 6px;
+            border: 1px solid #cbd5e1;
+            margin-left: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo {
+                font-size: 2.2rem;
+            }
+            
+            .btn-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">YojanaGuru</div>
+        <div class="tagline">केंद्र सरकार की सभी प्रमुख योजनाएँ</div>
+    </div>
+    
+    <div class="container">
+        <div class="filter-section">
+            <button class="filter-btn active">सभी योजनाएँ</button>
+            <button class="filter-btn">पेंशन</button>
+            <button class="filter-btn">बीमा</button>
+            <button class="filter-btn">कृषि</button>
+            <button class="filter-btn">आवास</button>
+            <button class="filter-btn">स्वास्थ्य</button>
+            <button class="filter-btn">शिक्षा</button>
+            <button class="filter-btn">वित्तीय समावेशन</button>
+        </div>
+        
+        <div class="card-grid">
+            <!-- अटल पेंशन योजना -->
+            <div class="scheme-card">
+                <div class="scheme-header">
+                    <span class="scheme-icon">👴</span>
+                    अटल पेंशन योजना (APY)
+                </div>
+                <div class="scheme-body">
+                    <div class="section-title">
+                        📝 आवश्यक दस्तावेज
+                    </div>
+                    <ul class="doc-list">
+                        <li>आधार कार्ड</li>
+                        <li>मोबाइल नंबर</li>
+                        <li>बैंक खाता विवरण</li>
+                        <li>पासपोर्ट साइज फोटो</li>
+                    </ul>
+                    
+                    <div class="section-title">
+                        📥 आवेदन प्रक्रिया
+                    </div>
+                    <ol class="steps-list">
+                        <li>बैंक या डाकघर में जाएं</li>
+                        <li>APY फॉर्म भरें</li>
+                        <li>आवश्यक दस्तावेज जमा करें</li>
+                        <li>मासिक प्रीमियम भुगतान शुरू करें</li>
+                    </ol>
+                    
+                    <div class="section-title">
+                        ✔️ लाभ
+                    </div>
+                    <ul class="benefits-list">
+                        <li>60 वर्ष की आयु के बाद निश्चित पेंशन</li>
+                        <li>सरकार द्वारा 50% सहयोग (कुछ शर्तों के अधीन)</li>
+                        <li>कर लाभ</li>
+                    </ul>
+                    
+                    <div class="btn-container">
+                        <a href="https://www.jansuraksha.gov.in/" class="btn" target="_blank">आवेदन करें</a>
+                        <a href="https://www.jansuraksha.gov.in/Forms/APY.pdf" class="btn btn-outline" target="_blank">फॉर्म डाउनलोड</a>
+                    </div>
+                    <div class="loading-container">
+                        <div class="loading-bar"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- प्रधानमंत्री सुरक्षा बीमा योजना -->
+            <div class="scheme-card">
+                <div class="scheme-header">
+                    <span class="scheme-icon">🛡️</span>
+                    प्रधानमंत्री सुरक्षा बीमा योजना (PMSBY)
+                </div>
+                <div class="scheme-body">
+                    <div class="section-title">
+                        📝 आवश्यक दस्तावेज
+                    </div>
+                    <ul class="doc-list">
+                        <li>आधार कार्ड</li>
+                        <li>बैंक खाता विवरण</li>
+                        <li>मोबाइल नंबर</li>
+                    </ul>
+                    
+                    <div class="section-title">
+                        📥 आवेदन प्रक्रिया
+                    </div>
+                    <ol class="steps-list">
+                        <li>बैंक/डाकघर/बीमा कंपनी में जाएं</li>
+                        <li>PMSBY फॉर्म भरें</li>
+                        <li>₹12 का वार्षिक प्रीमियम भुगतान करें</li>
+                        <li>पॉलिसी प्राप्त करें</li>
+                    </ol>
+                    
+                    <div class="section-title">
+                        ✔️ लाभ
+                    </div>
+                    <ul class="benefits-list">
+                        <li>दुर्घटना में मृत्यु/स्थायी विकलांगता पर ₹2 लाख का कवर</li>
+                        <li>केवल ₹12 प्रति वर्ष प्रीमियम</li>
+                        <li>18-70 वर्ष के बीच कोई भी आवेदन कर सकता है</li>
+                    </ul>
+                    
+                    <div class="btn-container">
+                        <a href="https://www.jansuraksha.gov.in/" class="btn" target="_blank">आवेदन करें</a>
+                        <a href="https://www.jansuraksha.gov.in/Forms/PMSBY.pdf" class="btn btn-outline" target="_blank">फॉर्म डाउनलोड</a>
+                    </div>
+                    <div class="loading-container">
+                        <div class="loading-bar"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- प्रधानमंत्री जन धन योजना -->
+            <div class="scheme-card">
+                <div class="scheme-header">
+                    <span class="scheme-icon">🏦</span>
+                    प्रधानमंत्री जन धन योजना (PMJDY)
+                </div>
+                <div class="scheme-body">
+                    <div class="section-title">
+                        📝 आवश्यक दस्तावेज
+                    </div>
+                    <ul class="doc-list">
+                        <li>आधार कार्ड (अनिवार्य)</li>
+                        <li>पहचान प्रमाण (यदि आधार नहीं है)</li>
+                        <li>पता प्रमाण (यदि आधार में पता नहीं है)</li>
+                    </ul>
+                    
+                    <div class="section-title">
+                        📥 आवेदन प्रक्रिया
+                    </div>
+                    <ol class="steps-list">
+                        <li>किसी भी बैंक शाखा में जाएं</li>
+                        <li>PMJDY फॉर्म भरें</li>
+                        <li>आधार कार्ड जमा करें</li>
+                        <li>शून्य बैलेंस खाता खोलें</li>
+                    </ol>
+                    
+                    <div class="section-title">
+                        ✔️ लाभ
+                    </div>
+                    <ul class="benefits-list">
+                        <li>शून्य बैलेंस वाला बैंक खाता</li>
+                        <li>₹2 लाख का दुर्घटना बीमा कवर</li>
+                        <li>रुपे डेबिट कार्ड</li>
+                        <li>ओवरड्राफ्ट सुविधा</li>
+                    </ul>
+                    
+                    <div class="btn-container">
+                        <a href="https://pmjdy.gov.in/" class="btn" target="_blank">आवेदन करें</a>
+                        <a href="https://pmjdy.gov.in/files/account-opening-form.pdf" class="btn btn-outline" target="_blank">फॉर्म डाउनलोड</a>
+                    </div>
+                    <div class="loading-container">
+                        <div class="loading-bar"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- आयुष्मान भारत योजना -->
+            <div class="scheme-card">
+                <div class="scheme-header">
+                    <span class="scheme-icon">🏥</span>
+                    आयुष्मान भारत योजना (AB-PMJAY)
+                </div>
+                <div class="scheme-body">
+                    <div class="section-title">
+                        📝 आवश्यक दस्तावेज
+                    </div>
+                    <ul class="doc-list">
+                        <li>आधार कार्ड</li>
+                        <li>मोबाइल नंबर</li>
+                        <li>पता प्रमाण (यदि आवश्यक हो)</li>
+                    </ul>
+                    
+                    <div class="section-title">
+                        📥 आवेदन प्रक्रिया
+                    </div>
+                    <ol class="steps-list">
+                        <li>आधिकारिक वेबसाइट पर जाएं</li>
+                        <li>अपना आधार नंबर दर्ज करें</li>
+                        <li>पात्रता की जांच करें</li>
+                        <li>e-card डाउनलोड करें</li>
+                    </ol>
+                    
+                    <div class="section-title">
+                        ✔️ लाभ
+                    </div>
+                    <ul class="benefits-list">
+                        <li>प्रति परिवार प्रति वर्ष ₹5 लाख तक का स्वास्थ्य बीमा</li>
+                        <li>1500+ मेडिकल प्रक्रियाएं कवर</li>
+                        <li>कैशलेस उपचार</li>
+                    </ul>
+                    
+                    <div class="btn-container">
+                        <a href="https://pmjay.gov.in/" class="btn" target="_blank">आवेदन करें</a>
+                        <a href="https://mera.pmjay.gov.in/search/login" class="btn btn-outline" target="_blank">पात्रता जांचें</a>
+                    </div>
+                    <div class="loading-container">
+                        <div class="loading-bar"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- प्रधानमंत्री आवास योजना -->
+            <div class="scheme-card">
+                <div class="scheme-header">
+                    <span class="scheme-icon">🏠</span>
+                    प्रधानमंत्री आवास योजना (PMAY)
+                </div>
+                <div class="scheme-body">
+                    <div class="section-title">
+                        📝 आवश्यक दस्तावेज
+                    </div>
+                    <ul class="doc-list">
+                        <li>आधार कार्ड</li>
+                        <li>आय प्रमाण पत्र</li>
+                        <li>पता प्रमाण</li>
+                        <li>जाति प्रमाण पत्र (यदि लागू हो)</li>
+                        <li>बैंक खाता विवरण</li>
+                    </ul>
+                    
+                    <div class="section-title">
+                        📥 आवेदन प्रक्रिया
+                    </div>
+                    <ol class="steps-list">
+                        <li>आधिकारिक वेबसाइट पर जाएं</li>
+                        <li>नागरिक लॉगिन बनाएं</li>
+                        <li>आवेदन फॉर्म भरें</li>
+                        <li>दस्तावेज अपलोड करें</li>
+                        <li>आवेदन जमा करें</li>
+                    </ol>
+                    
+                    <div class="section-title">
+                        ✔️ लाभ
+                    </div>
+                    <ul class="benefits-list">
+                        <li>EWS/LIG को ₹2.67 लाख तक की सब्सिडी</li>
+                        <li>MIG को ब्याज सब्सिडी</li>
+                        <li>ग्रामीण क्षेत्रों में ₹1.30 लाख तक की सहायता</li>
+                    </ul>
+                    
+                    <div class="btn-container">
+                        <select class="state-dropdown">
+                            <option value="">राज्य चुनें</option>
+                            <option value="up">उत्तर प्रदेश</option>
+                            <option value="mp">मध्य प्रदेश</option>
+                            <option value="mh">महाराष्ट्र</option>
+                            <!-- Add all states -->
+                        </select>
+                        <a href="https://pmaymis.gov.in/" class="btn" target="_blank">आवेदन करें</a>
+                    </div>
+                    <div class="loading-container">
+                        <div class="loading-bar"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- प्रधानमंत्री जीवन ज्योति बीमा योजना -->
+            <div class="scheme-card">
+                <div class="scheme-header">
+                    <span class="scheme-icon">🛡️</span>
+                    प्रधानमंत्री जीवन ज्योति बीमा योजना (PMSBJJY)
+                </div>
+                <div class="scheme-body">
+                    <div class="section-title">
+                        📝 आवश्यक दस्तावेज
+                    </div>
+                    <ul class="doc-list">
+                        <li>आधार कार्ड</li>
+                        <li>बैंक खाता विवरण</li>
+                        <li>मोबाइल नंबर</li>
+                    </ul>
+                    
+                    <div class="section-title">
+                        📥 आवेदन प्रक्रिया
+                    </div>
+                    <ol class="steps-list">
+                        <li>बैंक/डाकघर/बीमा कंपनी में जाएं</li>
+                        <li>PMSBJJY फॉर्म भरें</li>
+                        <li>₹330 का वार्षिक प्रीमियम भुगतान करें</li>
+                        <li>पॉलिसी प्राप्त करें</li>
+                    </ol>
+                    
+                    <div class="section-title">
+                        ✔️ लाभ
+                    </div>
+                    <ul class="benefits-list">
+                        <li>₹2 लाख का जीवन बीमा कवर</li>
+                        <li>केवल ₹330 प्रति वर्ष प्रीमियम</li>
+                        <li>18-50 वर्ष के बीच कोई भी आवेदन कर सकता है</li>
+                    </ul>
+                    
+                    <div class="btn-container">
+                        <a href="https://www.jansuraksha.gov.in/" class="btn" target="_blank">आवेदन करें</a>
+                        <a href="https://www.jansuraksha.gov.in/Forms/PMSBJJY.pdf" class="btn btn-outline" target="_blank">फॉर्म डाउनलोड</a>
+                    </div>
+                    <div class="loading-container">
+                        <div class="loading-bar"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- प्रधानमंत्री कौशल विकास योजना -->
+            <div class="scheme-card">
+                <div class="scheme-header">
+                    <span class="scheme-icon">🔧</span>
+                    प्रधानमंत्री कौशल विकास योजना (PMKVY)
+                </div>
+                <div class="scheme-body">
+                    <div class="section-title">
+                        📝 आवश्यक दस्तावेज
+                    </div>
+                    <ul class="doc-list">
+                        <li>आधार कार्ड</li>
+                        <li>10वीं/12वीं मार्कशीट</li>
+                        <li>बैंक खाता विवरण</li>
+                        <li>पासपोर्ट साइज फोटो</li>
+                    </ul>
+                    
+                    <div class="section-title">
+                        📥 आवेदन प्रक्रिया
+                    </div>
+                    <ol class="steps-list">
+                        <li>आधिकारिक वेबसाइट पर जाएं</li>
+                        <li>पंजीकरण करें</li>
+                        <li>कोर्स चुनें</li>
+                        <li>प्रशिक्षण केंद्र पर जाएं</li>
+                        <li>प्रशिक्षण पूरा करें और प्रमाणपत्र प्राप्त करें</li>
+                    </ol>
+                    
+                    <div class="section-title">
+                        ✔️ लाभ
+                    </div>
+                    <ul class="benefits-list">
+                        <li>मुफ्त कौशल प्रशिक्षण</li>
+                        <li>प्रशिक्षण पूरा करने पर ₹8,000 तक का पुरस्कार</li>
+                        <li>रोजगार के अवसर</li>
+                    </ul>
+                    
+                    <div class="btn-container">
+                        <a href="https://www.pmkvyofficial.org/" class="btn" target="_blank">आवेदन करें</a>
+                        <a href="https://www.pmkvyofficial.org/Course-Center.aspx" class="btn btn-outline" target="_blank">प्रशिक्षण केंद्र खोजें</a>
+                    </div>
+                    <div class="loading-container">
+                        <div class="loading-bar"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- प्रधानमंत्री मातृत्व वंदना योजना -->
+            <div class="scheme-card">
+                <div class="scheme-header">
+                    <span class="scheme-icon">🤰</span>
+                    प्रधानमंत्री मातृत्व वंदना योजना (PMMVY)
+                </div>
+                <div class="scheme-body">
+                    <div class="section-title">
+                        📝 आवश्यक दस्तावेज
+                    </div>
+                    <ul class="doc-list">
+                        <li>आधार कार्ड</li>
+                        <li>बैंक खाता विवरण</li>
+                        <li>गर्भावस्था प्रमाण पत्र</li>
+                        <li>पहले जीवित बच्चे का प्रमाण</li>
+                    </ul>
+                    
+                    <div class="section-title">
+                        📥 आवेदन प्रक्रिया
+                    </div>
+                    <ol class="steps-list">
+                        <li>आंगनवाड़ी केंद्र/लाभार्थी सेवा केंद्र पर जाएं</li>
+                        <li>PMMVY फॉर्म भरें</li>
+                        <li>दस्तावेज जमा करें</li>
+                        <li>₹5,000 की तीन किस्तों में राशि प्राप्त करें</li>
+                    </ol>
+                    
+                    <div class="section-title">
+                        ✔️ लाभ
+                    </div>
+                    <ul class="benefits-list">
+                        <li>पहले जीवित बच्चे के जन्म पर ₹5,000 की वित्तीय सहायता</li>
+                        <li>गर्भावस्था और स्तनपान के दौरान पोषण सहायता</li>
+                    </ul>
+                    
+                    <div class="btn-container">
+                        <a href="https://wcd.nic.in/schemes/pradhan-mantri-matru-vandana-yojana" class="btn" target="_blank">आवेदन करें</a>
+                        <a href="https://wcd.nic.in/sites/default/files/PMMVY_Guidelines_Hindi_0.pdf" class="btn btn-outline" target="_blank">दिशानिर्देश डाउनलोड</a>
+                    </div>
+                    <div class="loading-container">
+                        <div class="loading-bar"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- ग्रामीण कौशल्या योजना -->
+            <div class="scheme-card">
+                <div class="scheme-header">
+                    <span class="scheme-icon">👨‍🌾</span>
+                    ग्रामीण कौशल्या योजना (RKY)
+                </div>
+                <div class="scheme-body">
+                    <div class="section-title">
+                        📝 आवश्यक दस्तावेज
+                    </div>
+                    <ul class="doc-list">
+                        <li>आधार कार्ड</li>
+                        <li>निवास प्रमाण पत्र</li>
+                        <li>बैंक खाता विवरण</li>
+                        <li>शैक्षिक प्रमाण पत्र</li>
+                    </ul>
+                    
+                    <div class="section-title">
+                        📥 आवेदन प्रक्रिया
+                    </div>
+                    <ol class="steps-list">
+                        <li>जिला ग्रामीण विकास अभिकरण (DRDA) कार्यालय में जाएं</li>
+                        <li>आवेदन फॉर्म भरें</li>
+                        <li>दस्तावेज जमा करें</li>
+                        <li>प्रशिक्षण के लिए चयनित होने की प्रतीक्षा करें</li>
+                    </ol>
+                    
+                    <div class="section-title">
+                        ✔️ लाभ
+                    </div>
+                    <ul class="benefits-list">
+                        <li>ग्रामीण युवाओं को मुफ्त कौशल प्रशिक्षण</li>
+                        <li>प्रशिक्षण के दौरान छात्रवृत्ति</li>
+                        <li>रोजगार सहायता</li>
+                    </ul>
+                    
+                    <div class="btn-container">
+                        <a href="https://rural.nic.in/" class="btn" target="_blank">आवेदन करें</a>
+                        <a href="https://rural.nic.in/sites/default/files/Web_0.pdf" class="btn btn-outline" target="_blank">जानकारी डाउनलोड</a>
+                    </div>
+                    <div class="loading-container">
+                        <div class="loading-bar"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- प्रधानमंत्री किसान सम्मान निधि -->
+            <div class="scheme-card">
+                <div class="scheme-header">
+                    <span class="scheme-icon">👨‍🌾</span>
+                    प्रधानमंत्री किसान सम्मान निधि (PM-KISAN)
+                </div>
+                <div class="scheme-body">
+                    <div class="section-title">
+                        📝 आवश्यक दस्तावेज
+                    </div>
+                    <ul class="doc-list">
+                        <li>आधार कार्ड</li>
+                        <li>भूमि रिकॉर्ड दस्तावेज</li>
+                        <li>बैंक खाता विवरण</li>
+                        <li>पहचान प्रमाण</li>
+                    </ul>
+                    
+                    <div class="section-title">
+                        📥 आवेदन प्रक्रिया
+                    </div>
+                    <ol class="steps-list">
+                        <li>आधिकारिक वेबसाइट पर जाएं</li>
+                        <li>नया किसान पंजीकरण करें</li>
+                        <li>आवश्यक विवरण भरें</li>
+                        <li>दस्तावेज अपलोड करें</li>
+                        <li>आवेदन जमा करें</li>
+                    </ol>
+                    
+                    <div class="section-title">
+                        ✔️ लाभ
+                    </div>
+                    <ul class="benefits-list">
+                        <li>प्रति वर्ष ₹6,000 की वित्तीय सहायता</li>
+                        <li>तीन किस्तों में ₹2,000-₹2,000</li>
+                        <li>सीधे बैंक खाते में भुगतान</li>
+                    </ul>
+                    
+                    <div class="btn-container">
+                        <a href="https://pmkisan.gov.in/" class="btn" target="_blank">आवेदन करें</a>
+                        <a href="https://pmkisan.gov.in/Documents/PMKISAN_Operational_Guidelines.pdf" class="btn btn-outline" target="_blank">दिशानिर्देश डाउनलोड</a>
+                    </div>
+                    <div class="loading-container">
+                        <div class="loading-bar"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- राष्ट्रीय कृषि विकास योजना -->
+            <div class="scheme-card">
+                <div class="scheme-header">
+                    <span class="scheme-icon">🌾</span>
+                    राष्ट्रीय कृषि विकास योजना (RKVY)
+                </div>
+                <div class="scheme-body">
+                    <div class="section-title">
+                        📝 आवश्यक दस्तावेज
+                    </div>
+                    <ul class="doc-list">
+                        <li>आधार कार्ड</li>
+                        <li>भूमि दस्तावेज</li>
+                        <li>बैंक खाता विवरण</li>
+                        <li>परियोजना प्रस्ताव</li>
+                    </ul>
+                    
+                    <div class="section-title">
+                        📥 आवेदन प्रक्रिया
+                    </div>
+                    <ol class="steps-list">
+                        <li>राज्य कृषि विभाग से संपर्क करें</li>
+                        <li>परियोजना प्रस्ताव तैयार करें</li>
+                        <li>जिला स्तरीय समिति को प्रस्ताव जमा करें</li>
+                        <li>अनुमोदन की प्रतीक्षा करें</li>
+                    </ol>
+                    
+                    <div class="section-title">
+                        ✔️ लाभ
+                    </div>
+                    <ul class="benefits-list">
+                        <li>कृषि बुनियादी ढांचे के विकास के लिए वित्तीय सहायता</li>
+                        <li>किसानों को प्रशिक्षण और संसाधन</li>
+                        <li>कृषि उत्पादकता में वृद्धि</li>
+                    </ul>
+                    
+                    <div class="btn-container">
+                        <a href="https://rkvy.nic.in/" class="btn" target="_blank">आवेदन करें</a>
+                        <a href="https://rkvy.nic.in/static/downloads/Guidelines/RKVY-RAFTAAR_Guidelines.pdf" class="btn btn-outline" target="_blank">दिशानिर्देश डाउनलोड</a>
+                    </div>
+                    <div class="loading-container">
+                        <div class="loading-bar"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- अंत्योदय अन्न योजना -->
+            <div class="scheme-card">
+                <div class="scheme-header">
+                    <span class="scheme-icon">🛒</span>
+                    अंत्योदय अन्न योजना (AAY)
+                </div>
+                <div class="scheme-body">
+                    <div class="section-title">
+                        📝 आवश्यक दस्तावेज
+                    </div>
+                    <ul class="doc-list">
+                        <li>आधार कार्ड</li>
+                        <li>बीपीएल राशन कार्ड</li>
+                        <li>आय प्रमाण पत्र</li>
+                        <li>निवास प्रमाण पत्र</li>
+                    </ul>
+                    
+                    <div class="section-title">
+                        📥 आवेदन प्रक्रिया
+                    </div>
+                    <ol class="steps-list">
+                        <li>तहसीलदार/नगर निगम कार्यालय में जाएं</li>
+                        <li>AAY आवेदन फॉर्म प्राप्त करें</li>
+                        <li>आवश्यक दस्तावेज संलग्न करें</li>
+                        <li>आवेदन जमा करें</li>
+                        <li>सत्यापन के बाद राशन कार्ड प्राप्त करें</li>
+                    </ol>
+                    
+                    <div class="section-title">
+                        ✔️ लाभ
+                    </div>
+                    <ul class="benefits-list">
+                        <li>प्रति परिवार 35 किलो अनाज (चावल/गेहूं)</li>
+                        <li>अत्यधिक सब्सिडी दरों पर (₹3/किलो चावल, ₹2/किलो गेहूं)</li>
+                        <li>गरीबी रेखा से नीचे के परिवारों को लाभ</li>
+                    </ul>
+                    
+                    <div class="btn-container">
+                        <a href="https://dfpd.gov.in/" class="btn" target="_blank">आवेदन करें</a>
+                        <a href="https://dfpd.gov.in/schemes-AAY.htm" class="btn btn-outline" target="_blank">और जानकारी</a>
+                    </div>
+                    <div class="loading-container">
+                        <div class="loading-bar"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- मुद्रा योजना -->
+            <div class="scheme-card">
+                <div class="scheme-header">
+                    <span class="scheme-icon">💼</span>
+                    मुद्रा योजना (PMMY)
+                </div>
+                <div class="scheme-body">
+                    <div class="section-title">
+                        📝 आवश्यक दस्तावेज
+                    </div>
+                    <ul class="doc-list">
+                        <li>आधार कार्ड</li>
+                        <li>पहचान प्रमाण</li>
+                        <li>पता प्रमाण</li>
+                        <li>व्यवसाय योजना</li>
+                        <li>बैंक खाता विवरण</li>
+                    </ul>
+                    
+                    <div class="section-title">
+                        📥 आवेदन प्रक्रिया
+                    </div>
+                    <ol class="steps-list">
+                        <li>मान्यता प्राप्त बैंक/एमएफआई में जाएं</li>
+                        <li>मुद्रा ऋण आवेदन फॉर्म भरें</li>
+                        <li>दस्तावेज जमा करें</li>
+                        <li>ऋण स्वीकृति की प्रतीक्षा करें</li>
+                    </ol>
+                    
+                    <div class="section-title">
+                        ✔️ लाभ
+                    </div>
+                    <ul class="benefits-list">
+                        <li>शिशु (₹50,000 तक), किशोर (₹5 लाख तक) और तरुण (₹10 लाख तक) श्रेणियों में ऋण</li>
+                        <li>बिना गारंटी के ऋण</li>
+                        <li>महिला उद्यमियों को प्राथमिकता</li>
+                    </ul>
+                    
+                    <div class="btn-container">
+                        <a href="https://www.mudra.org.in/" class="btn" target="_blank">आवेदन करें</a>
+                        <a href="https://www.mudra.org.in/Downloads.aspx" class="btn btn-outline" target="_blank">फॉर्म डाउनलोड</a>
+                    </div>
+                    <div class="loading-container">
+                        <div class="loading-bar"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- प्रधानमंत्री उज्ज्वला योजना -->
+            <div class="scheme-card">
+                <div class="scheme-header">
+                    <span class="scheme-icon">🔥</span>
+                    प्रधानमंत्री उज्ज्वला योजना (PMUY)
+                </div>
+                <div class="scheme-body">
+                    <div class="section-title">
+                        📝 आवश्यक दस्तावेज
+                    </div>
+                    <ul class="doc-list">
+                        <li>आधार कार्ड</li>
+                        <li>बीपीएल राशन कार्ड</li>
+                        <li>मोबाइल नंबर</li>
+                        <li>पासपोर्ट साइज फोटो</li>
+                    </ul>
+                    
+                    <div class="section-title">
+                        📥 आवेदन प्रक्रिया
+                    </div>
+                    <ol class="steps-list">
+                        <li>निकटतम एलपीजी डीलर पर जाएं</li>
+                        <li>PMUY फॉर्म भरें</li>
+                        <li>दस्तावेज जमा करें</li>
+                        <li>कनेक्शन फीस (₹1,600) का भुगतान करें</li>
+                        <li>गैस कनेक्शन और स्टोव प्राप्त करें</li>
+                    </ol>
+                    
+                    <div class="section-title">
+                        ✔️ लाभ
+                    </div>
+                    <ul class="benefits-list">
+                        <li>मुफ्त एलपीजी कनेक्शन</li>
+                        <li>3 वर्षों में 14 रिफिल पर ₹200 प्रति सिलेंडर सब्सिडी</li>
+                        <li>महिलाओं को धुआं मुक्त रसोई की सुविधा</li>
+                    </ul>
+                    
+                    <div class="btn-container">
+                        <a href="https://www.pmuy.gov.in/" class="btn" target="_blank">आवेदन करें</a>
+                        <a href="https://www.pmuy.gov.in/downloads.aspx" class="btn btn-outline" target="_blank">फॉर्म डाउनलोड</a>
+                    </div>
+                    <div class="loading-container">
+                        <div class="loading-bar"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- क्रेडिट गारंटी स्कीम -->
+            <div class="scheme-card">
+                <div class="scheme-header">
+                    <span class="scheme-icon">🏦</span>
+                    क्रेडिट गारंटी स्कीम (CGS)
+                </div>
+                <div class="scheme-body">
+                    <div class="section-title">
+                        📝 आवश्यक दस्तावेज
+                    </div>
+                    <ul class="doc-list">
+                        <li>आधार कार्ड</li>
+                        <li>पैन कार्ड</li>
+                        <li>व्यवसाय प्रमाण</li>
+                        <li>बैंक खाता विवरण</li>
+                        <li>आय प्रमाण</li>
+                    </ul>
+                    
+                    <div class="section-title">
+                        📥 आवेदन प्रक्रिया
+                    </div>
+                    <ol class="steps-list">
+                        <li>मान्यता प्राप्त वित्तीय संस्थान में जाएं</li>
+                        <li>CGS आवेदन फॉर्म भरें</li>
+                        <li>दस्तावेज जमा करें</li>
+                        <li>ऋण आवेदन प्रक्रिया पूरी करें</li>
+                        <li>गारंटी कवर प्राप्त करें</li>
+                    </ol>
+                    
+                    <div class="section-title">
+                        ✔️ लाभ
+                    </div>
+                    <ul class="benefits-list">
+                        <li>MSMEs को बिना गारंटी के ऋण सुविधा</li>
+                        <li>₹2 करोड़ तक के ऋण के लिए क्रेडिट गारंटी</li>
+                        <li>ऋण पर ब्याज दर में छूट</li>
+                    </ul>
+                    
+                    <div class="btn-container">
+                        <a href="https://www.cgtmse.in/" class="btn" target="_blank">आवेदन करें</a>
+                        <a href="https://www.cgtmse.in/downloads.aspx" class="btn btn-outline" target="_blank">फॉर्म डाउनलोड</a>
+                    </div>
+                    <div class="loading-container">
+                        <div class="loading-bar"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- PM SVANidhi -->
+            <div class="scheme-card">
+                <div class="scheme-header">
+                    <span class="scheme-icon">🛒</span>
+                    PM स्ट्रीट वेंडर आत्मनिर्भर निधि (PM SVANidhi)
+                </div>
+                <div class="scheme-body">
+                    <div class="section-title">
+                        📝 आवश्यक दस्तावेज
+                    </div>
+                    <ul class="doc-list">
+                        <li>आधार कार्ड</li>
+                        <li>वेंडर प्रमाण (नगर निगम द्वारा जारी)</li>
+                        <li>बैंक खाता विवरण</li>
+                        <li>पहचान प्रमाण</li>
+                    </ul>
+                    
+                    <div class="section-title">
+                        📥 आवेदन प्रक्रिया
+                    </div>
+                    <ol class="steps-list">
+                        <li>नगर निगम कार्यालय/मान्यता प्राप्त बैंक में जाएं</li>
+                        <li>PM SVANidhi फॉर्म भरें</li>
+                        <li>दस्तावेज जमा करें</li>
+                        <li>₹10,000 तक का ऋण प्राप्त करें</li>
+                    </ol>
+                    
+                    <div class="section-title">
+                        ✔️ लाभ
+                    </div>
+                    <ul class="benefits-list">
+                        <li>सड़क विक्रेताओं को ₹10,000 तक का कार्यशील पूंजी ऋण</li>
+                        <li>समय पर पुनर्भुगतान पर 7% ब्याज सब्सिडी</li>
+                        <li>मासिक किस्तों में आसान पुनर्भुगतान</li>
+                    </ul>
+                    
+                    <div class="btn-container">
+                        <a href="https://pmsvanidhi.mohua.gov.in/" class="btn" target="_blank">आवेदन करें</a>
+                        <a href="https://pmsvanidhi.mohua.gov.in/Files/PM%20SVANidhi%20Scheme%20Guidelines.pdf" class="btn btn-outline" target="_blank">दिशानिर्देश डाउनलोड</a>
+                    </div>
+                    <div class="loading-container">
+                        <div class="loading-bar"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- प्रधानमंत्री किसान मानधन योजना -->
+            <div class="scheme-card">
+                <div class="scheme-header">
+                    <span class="scheme-icon">👨‍🌾</span>
+                    प्रधानमंत्री किसान मानधन योजना (PM-KMY)
+                </div>
+                <div class="scheme-body">
+                    <div class="section-title">
+                        📝 आवश्यक दस्तावेज
+                    </div>
+                    <ul class="doc-list">
+                        <li>आधार कार्ड</li>
+                        <li>बैंक खाता विवरण</li>
+                        <li>मोबाइल नंबर</li>
+                        <li>भूमि दस्तावेज</li>
+                    </ul>
+                    
+                    <div class="section-title">
+                        📥 आवेदन प्रक्रिया
+                    </div>
+                    <ol class="steps-list">
+                        <li>कॉमन सर्विस सेंटर (CSC) पर जाएं</li>
+                        <li>PM-KMY फॉर्म भरें</li>
+                        <li>आवश्यक दस्तावेज जमा करें</li>
+                        <li>मासिक योगदान (₹55-₹200) देना शुरू करें</li>
+                    </ol>
+                    
+                    <div class="section-title">
+                        ✔️ लाभ
+                    </div>
+                    <ul class="benefits-list">
+                        <li>60 वर्ष की आयु के बाद ₹3,000 मासिक पेंशन</li>
+                        <li>सरकार द्वारा समान योगदान</li>
+                        <li>कम प्रीमियम पर पेंशन सुरक्षा</li>
+                    </ul>
+                    
+                    <div class="btn-container">
+                        <a href="https://pmkmy.gov.in/" class="btn" target="_blank">आवेदन करें</a>
+                        <a href="https://pmkmy.gov.in/documents/PM-KMY-Brochure-Hindi.pdf" class="btn btn-outline" target="_blank">ब्रोशर डाउनलोड</a>
+                    </div>
+                    <div class="loading-container">
+                        <div class="loading-bar"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- भारतीय जनऔषधि परियोजना -->
+            <div class="scheme-card">
+                <div class="scheme-header">
+                    <span class="scheme-icon">💊</span>
+                    भारतीय जनऔषधि परियोजना (PMBJP)
+                </div>
+                <div class="scheme-body">
+                    <div class="section-title">
+                        📝 आवश्यक दस्तावेज
+                    </div>
+                    <ul class="doc-list">
+                        <li>आधार कार्ड (छूट प्राप्त करने के लिए)</li>
+                        <li>डॉक्टर का पर्चा (यदि आवश्यक हो)</li>
+                    </ul>
+                    
+                    <div class="section-title">
+                        📥 लाभ उठाने की प्रक्रिया
+                    </div>
+                    <ol class="steps-list">
+                        <li>निकटतम जनऔषधि केंद्र खोजें</li>
+                        <li>आवश्यक दवाओं की सूची लेकर जाएं</li>
+                        <li>डॉक्टर के पर्चे पर दवाएं खरीदें</li>
+                        <li>सामान्य दवाएं बिना पर्चे के भी उपलब्ध</li>
+                    </ol>
+                    
+                    <div class="section-title">
+                        ✔️ लाभ
+                    </div>
+                    <ul class="benefits-list">
+                        <li>बाजार मूल्य से 50-90% कम कीमत पर दवाएं</li>
+                        <li>900+ जनऔषधि केंद्रों पर 1,500+ दवाएं उपलब्ध</li>
+                        <li>गुणवत्ता आश्वासन</li>
+                    </ul>
+                    
+                    <div class="btn-container">
+                        <a href="https://janaushadhi.gov.in/" class="btn" target="_blank">केंद्र खोजें</a>
+                        <a href="https://janaushadhi.gov.in/ProductList.aspx" class="btn btn-outline" target="_blank">दवा सूची देखें</a>
+                    </div>
+                    <div class="loading-container">
+                        <div class="loading-bar"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- गरीब कल्याण योजना -->
+            <div class="scheme-card">
+                <div class="scheme-header">
+                    <span class="scheme-icon">🤝</span>
+                    गरीब कल्याण योजना (GKY)
+                </div>
+                <div class="scheme-body">
+                    <div class="section-title">
+                        📝 आवश्यक दस्तावेज
+                    </div>
+                    <ul class="doc-list">
+                        <li>आधार कार्ड</li>
+                        <li>राशन कार्ड</li>
+                        <li>बैंक खाता विवरण</li>
+                        <li>आय प्रमाण पत्र</li>
+                    </ul>
+                    
+                    <div class="section-title">
+                        📥 आवेदन प्रक्रिया
+                    </div>
+                    <ol class="steps-list">
+                        <li>ग्राम पंचायत/नगर निगम कार्यालय में जाएं</li>
+                        <li>GKY फॉर्म प्राप्त करें और भरें</li>
+                        <li>आवश्यक दस्तावेज संलग्न करें</li>
+                        <li>आवेदन जमा करें</li>
+                    </ol>
+                    
+                    <div class="section-title">
+                        ✔️ लाभ
+                    </div>
+                    <ul class="benefits-list">
+                        <li>वित्तीय सहायता और सब्सिडी</li>
+                        <li>आवास, शिक्षा और स्वास्थ्य सहायता</li>
+                        <li>रोजगार के अवसर</li>
+                    </ul>
+                    
+                    <div class="btn-container">
+                        <a href="https://www.narendra-modi.in/schemes-for-poor" class="btn" target="_blank">आवेदन करें</a>
+                        <a href="https://www.india.gov.in/spotlight/garib-kalyan-rojgar-abhiyaan" class="btn btn-outline" target="_blank">और जानकारी</a>
+                    </div>
+                    <div class="loading-container">
+                        <div class="loading-bar"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- प्रधानमंत्री आदर्श ग्राम योजना -->
+            <div class="scheme-card">
+                <div class="scheme-header">
+                    <span class="scheme-icon">🏡</span>
+                    प्रधानमंत्री आदर्श ग्राम योजना (PMAGY)
+                </div>
+                <div class="scheme-body">
+                    <div class="section-title">
+                        📝 आवश्यक दस्तावेज
+                    </div>
+                    <ul class="doc-list">
+                        <li>ग्राम पंचायत प्रस्ताव</li>
+                        <li>परियोजना रिपोर्ट</li>
+                        <li>बजट अनुमान</li>
+                        <li>ग्राम विकास योजना</li>
+                    </ul>
+                    
+                    <div class="section-title">
+                        📥 आवेदन प्रक्रिया
+                    </div>
+                    <ol class="steps-list">
+                        <li>जिला स्तरीय समिति से संपर्क करें</li>
+                        <li>ग्राम विकास योजना तैयार करें</li>
+                        <li>परियोजना प्रस्ताव जमा करें</li>
+                        <li>अनुमोदन की प्रतीक्षा करें</li>
+                    </ol>
+                    
+                    <div class="section-title">
+                        ✔️ लाभ
+                    </div>
+                    <ul class="benefits-list">
+                        <li>ग्रामीण बुनियादी ढांचे का विकास</li>
+                        <li>स्वच्छ पेयजल और स्वच्छता सुविधाएं</li>
+                        <li>शिक्षा और स्वास्थ्य सेवाओं में सुधार</li>
+                    </ul>
+                    
+                    <div class="btn-container">
+                        <a href="https://rural.nic.in/" class="btn" target="_blank">आवेदन करें</a>
+                        <a href="https://rural.nic.in/sites/default/files/SAGY_Guidelines_Hindi.pdf" class="btn btn-outline" target="_blank">दिशानिर्देश डाउनलोड</a>
+                    </div>
+                    <div class="loading-container">
+                        <div class="loading-bar"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- स्टैंड अप इंडिया स्कीम -->
+            <div class="scheme-card">
+                <div class="scheme-header">
+                    <span class="scheme-icon">🚀</span>
+                    स्टैंड अप इंडिया स्कीम
+                </div>
+                <div class="scheme-body">
+                    <div class="section-title">
+                        📝 आवश्यक दस्तावेज
+                    </div>
+                    <ul class="doc-list">
+                        <li>आधार कार्ड</li>
+                        <li>पैन कार्ड</li>
+                        <li>व्यवसाय योजना</li>
+                        <li>बैंक खाता विवरण</li>
+                        <li>प्रोजेक्ट रिपोर्ट</li>
+                    </ul>
+                    
+                    <div class="section-title">
+                        📥 आवेदन प्रक्रिया
+                    </div>
+                    <ol class="steps-list">
+                        <li>मान्यता प्राप्त बैंक में जाएं</li>
+                        <li>स्टैंड अप इंडिया फॉर्म भरें</li>
+                        <li>व्यवसाय योजना जमा करें</li>
+                        <li>ऋण स्वीकृति की प्रतीक्षा करें</li>
+                    </ol>
+                    
+                    <div class="section-title">
+                        ✔️ लाभ
+                    </div>
+                    <ul class="benefits-list">
+                        <li>SC/ST और महिला उद्यमियों को ₹10 लाख से ₹1 करोड़ तक का ऋण</li>
+                        <li>ऋण पर ब्याज दर में छूट</li>
+                        <li>मेंटरशिप और प्रशिक्षण सहायता</li>
+                    </ul>
+                    
+                    <div class="btn-container">
+                        <a href="https://www.standupmitra.in/" class="btn" target="_blank">आवेदन करें</a>
+                        <a href="https://www.standupmitra.in/Home/Download" class="btn btn-outline" target="_blank">फॉर्म डाउनलोड</a>
+                    </div>
+                    <div class="loading-container">
+                        <div class="loading-bar"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- आत्मनिर्भर भारत अभियान -->
+            <div class="scheme-card">
+                <div class="scheme-header">
+                    <span class="scheme-icon">🇮🇳</span>
+                    आत्मनिर्भर भारत अभियान (ANBA)
+                </div>
+                <div class="scheme-body">
+                    <div class="section-title">
+                        📝 आवश्यक दस्तावेज
+                    </div>
+                    <ul class="doc-list">
+                        <li>आधार कार्ड</li>
+                        <li>पैन कार्ड</li>
+                        <li>व्यवसाय पंजीकरण प्रमाण</li>
+                        <li>बैंक खाता विवरण</li>
+                        <li>प्रोजेक्ट रिपोर्ट</li>
+                    </ul>
+                    
+                    <div class="section-title">
+                        📥 आवेदन प्रक्रिया
+                    </div>
+                    <ol class="steps-list">
+                        <li>संबंधित मंत्रालय की वेबसाइट पर जाएं</li>
+                        <li>योजना के अनुसार आवेदन फॉर्म भरें</li>
+                        <li>दस्तावेज अपलोड करें</li>
+                        <li>आवेदन जमा करें</li>
+                    </ol>
+                    
+                    <div class="section-title">
+                        ✔️ लाभ
+                    </div>
+                    <ul class="benefits-list">
+                        <li>MSMEs को वित्तीय सहायता</li>
+                        <li>टैक्स राहत और प्रोत्साहन</li>
+                        <li>स्थानीय उत्पादों को बढ़ावा</li>
+                        <li>रोजगार सृजन</li>
+                    </ul>
+                    
+                    <div class="btn-container">
+                        <a href="https://www.mygov.in/campaigns/self-reliant-india/" class="btn" target="_blank">आवेदन करें</a>
+                        <a href="https://www.mygov.in/sites/default/files/self_reliant_india_presentation.pdf" class="btn btn-outline" target="_blank">प्रेजेंटेशन डाउनलोड</a>
+                    </div>
+                    <div class="loading-container">
+                        <div class="loading-bar"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- डिजिटल इंडिया -->
+            <div class="scheme-card">
+                <div class="scheme-header">
+                    <span class="scheme-icon">💻</span>
+                    डिजिटल इंडिया
+                </div>
+                <div class="scheme-body">
+                    <div class="section-title">
+                        📝 आवश्यक दस्तावेज
+                    </div>
+                    <ul class="doc-list">
+                        <li>आधार कार्ड (अधिकांश सेवाओं के लिए)</li>
+                        <li>मोबाइल नंबर (आधार से लिंक)</li>
+                        <li>बैंक खाता विवरण (DBT के लिए)</li>
+                    </ul>
+                    
+                    <div class="section-title">
+                        📥 सेवाओं का उपयोग
+                    </div>
+                    <ol class="steps-list">
+                        <li>संबंधित डिजिटल प्लेटफॉर्म पर जाएं</li>
+                        <li>आधार/मोबाइल OTP से लॉगिन करें</li>
+                        <li>आवश्यक सेवा का चयन करें</li>
+                        <li>ऑनलाइन आवेदन करें</li>
+                    </ol>
+                    
+                    <div class="section-title">
+                        ✔️ लाभ
+                    </div>
+                    <ul class="benefits-list">
+                        <li>सरकारी सेवाओं की ऑनलाइन उपलब्धता</li>
+                        <li>डिजिटल भुगतान सुविधाएं</li>
+                        <li>ई-गवर्नेंस सेवाएं</li>
+                        <li>डिजिटल साक्षरता कार्यक्रम</li>
+                    </ul>
+                    
+                    <div class="btn-container">
+                        <a href="https://digitalindia.gov.in/" class="btn" target="_blank">पोर्टल देखें</a>
+                        <a href="https://digitalindia.gov.in/content/initiatives" class="btn btn-outline" target="_blank">पहल देखें</a>
+                    </div>
+                    <div class="loading-container">
+                        <div class="loading-bar"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- रोजगार लिंक्ड प्रोत्साहन योजना -->
+            <div class="scheme-card">
+                <div class="scheme-header">
+                    <span class="scheme-icon">👔</span>
+                    रोजगार लिंक्ड प्रोत्साहन योजना (PLI)
+                </div>
+                <div class="scheme-body">
+                    <div class="section-title">
+                        📝 आवश्यक दस्तावेज
+                    </div>
+                    <ul class="doc-list">
+                        <li>कंपनी पंजीकरण प्रमाण</li>
+                        <li>प्रोजेक्ट रिपोर्ट</li>
+                        <li>निवेश योजना</li>
+                        <li>रोजगार सृजन योजना</li>
+                    </ul>
+                    
+                    <div class="section-title">
+                        📥 आवेदन प्रक्रिया
+                    </div>
+                    <ol class="steps-list">
+                        <li>संबंधित मंत्रालय की वेबसाइट पर जाएं</li>
+                        <li>PLI फॉर्म डाउनलोड करें</li>
+                        <li>आवश्यक दस्तावेज संलग्न करें</li>
+                        <li>आवेदन जमा करें</li>
+                    </ol>
+                    
+                    <div class="section-title">
+                        ✔️ लाभ
+                    </div>
+                    <ul class="benefits-list">
+                        <li>निवेश पर 4-6% की प्रोत्साहन राशि</li>
+                        <li>रोजगार सृजन के लिए अतिरिक्त प्रोत्साहन</li>
+                        <li>विशिष्ट क्षेत्रों में निवेश को बढ़ावा</li>
+                    </ul>
+                    
+                    <div class="btn-container">
+                        <a href="https://www.dpiit.gov.in/" class="btn" target="_blank">आवेदन करें</a>
+                        <a href="https://www.dpiit.gov.in/sites/default/files/PLI_Scheme_Guidelines.pdf" class="btn btn-outline" target="_blank">दिशानिर्देश डाउनलोड</a>
+                    </div>
+                    <div class="loading-container">
+                        <div class="loading-bar"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        &copy; 2023 YojanaGuru.com - All Rights Reserved<br>
+        <small>केंद्र और राज्य सरकारों की सभी योजनाओं की जानकारी</small>
+    </div>
+
+    <script>
+        // Filter functionality
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                const filter = btn.textContent.trim();
+                
+                if(filter === 'सभी योजनाएँ') {
+                    // Show all cards
+                    document.querySelectorAll('.scheme-card').forEach(card => {
+                        card.style.display = 'block';
+                    });
+                } else {
+                    // Implement actual filtering logic based on scheme categories
+                    // This is a simplified version - actual implementation would require proper categorization
+                    document.querySelectorAll('.scheme-card').forEach(card => {
+                        card.style.display = 'none';
+                    });
+                    document.querySelectorAll('.scheme-card').forEach(card => {
+                        if(card.querySelector('.scheme-header').textContent.includes(filter)) {
+                            card.style.display = 'block';
+                        }
+                    });
+                }
+            });
+        });
+        
+        // State dropdown functionality
+        document.querySelector('.state-dropdown').addEventListener('change', function() {
+            if(this.value) {
+                alert('आपने ' + this.options[this.selectedIndex].text + ' का चयन किया है। राज्य-विशिष्ट जानकारी लोड की जा रही है...');
+                // Here you would typically load state-specific information
+            }
+        });
+    </script>
+</body>
+</html>

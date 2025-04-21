@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>सरकारी आईडी कार्ड पोर्टल | YojanaGuru.com</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Nirmala UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f7fa;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tagline {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .id-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .id-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        
+        .card-header {
+            background: var(--secondary);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .card-body {
+            padding: 1.5rem;
+        }
+        
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        
+        .card-desc {
+            text-align: center;
+            margin-bottom: 1rem;
+            min-height: 40px;
+        }
+        
+        .btn-group {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 0.6rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            text-align: center;
+            flex: 1;
+            max-width: 120px;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        
+        .btn:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+        }
+        
+        .btn-apply {
+            background: #27ae60;
+        }
+        
+        .btn-back {
+            background: var(--accent);
+        }
+        
+        .loading-bar {
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            width: 100%;
+            animation: loading 2s infinite;
+            margin-top: 1rem;
+            border-radius: 2px;
+        }
+        
+        .doc-box {
+            background: #f8f9fa;
+            padding: 0.8rem;
+            border-radius: 6px;
+            margin: 1rem 0 0;
+            font-size: 0.9rem;
+            border-left: 3px solid var(--secondary);
+        }
+        
+        .doc-title {
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .doc-title svg {
+            width: 16px;
+            height: 16px;
+        }
+        
+        .doc-list {
+            padding-left: 1.2rem;
+            margin: 0;
+        }
+        
+        .doc-list li {
+            margin-bottom: 0.3rem;
+        }
+        
+        @keyframes loading {
+            0% { width: 0%; }
+            50% { width: 100%; }
+            100% { width: 0%; margin-left: 100%; }
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            background: var(--dark);
+            color: white;
+            margin-top: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .btn {
+                padding: 0.5rem;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">YojanaGuru</div>
+        <div class="tagline">सभी सरकारी आईडी कार्ड के लिए एकमात्र पोर्टल</div>
+    </div>
+    
+    <div class="container">
+        <div class="card-grid">
+            <!-- E-Shram Card -->
+            <div class="id-card">
+                <div class="card-header">E-Shram Card</div>
+                <div class="card-body">
+                    <div class="card-icon">👷</div>
+                    <div class="card-desc">असंगठित कामगारों के लिए लाभ कार्ड</div>
+                    
+                    <div class="btn-group">
+                        <a href="https://eshram.gov.in/" class="btn btn-apply" target="_blank">Apply Now</a>
+                        <a href="https://eshram.gov.in/" class="btn" target="_blank">Download</a>
+                    </div>
+                    
+                    <div class="doc-box">
+                        <div class="doc-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+                                <path fill-rule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z" clip-rule="evenodd" />
+                            </svg>
+                            कैसे बनवाएं?
+                        </div>
+                        <ul class="doc-list">
+                            <li>ई-श्रम पोर्टल पर मोबाइल नंबर से रजिस्टर करें</li>
+                            <li>आधार से वेरिफाई करें (OTP भेजेगा)</li>
+                            <li>अपना व्यवसाय और बैंक डिटेल्स भरें</li>
+                            <li>फाइनल सबमिट करके कार्ड डाउनलोड करें</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="doc-box">
+                        <div class="doc-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19.5 21a3 3 0 003-3v-4.5a3 3 0 00-3-3h-15a3 3 0 00-3 3V18a3 3 0 003 3h15zM1.5 10.146V6a3 3 0 013-3h5.379a2.25 2.25 0 011.59.659l2.122 2.121c.14.141.331.22.53.22H19.5a3 3 0 013 3v1.146A4.483 4.483 0 0019.5 9h-15a4.483 4.483 0 00-3 1.146z" />
+                            </svg>
+                            जरूरी दस्तावेज
+                        </div>
+                        <ul class="doc-list">
+                            <li>आधार कार्ड (अनिवार्य)</li>
+                            <li>बैंक अकाउंट (IFSC + अकाउंट नंबर)</li>
+                            <li>मोबाइल नंबर (आधार से लिंक्ड)</li>
+                            <li>व्यवसाय का प्रूफ (अगर हो तो)</li>
+                        </ul>
+                    </div>
+                    <div class="loading-bar"></div>
+                </div>
+            </div>
+            
+            <!-- KCC Card -->
+            <div class="id-card">
+                <div class="card-header">किसान क्रेडिट कार्ड (KCC)</div>
+                <div class="card-body">
+                    <div class="card-icon">👨‍🌾</div>
+                    <div class="card-desc">किसानों के लिए लोन और लाभ कार्ड</div>
+                    
+                    <div class="btn-group">
+                        <a href="https://www.nabard.org/" class="btn btn-apply" target="_blank">Apply Now</a>
+                        <a href="https://www.nabard.org/" class="btn" target="_blank">Check Status</a>
+                    </div>
+                    
+                    <div class="doc-box">
+                        <div class="doc-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+                                <path fill-rule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z" clip-rule="evenodd" />
+                            </svg>
+                            कैसे अप्लाई करें
+                        </div>
+                        <ul class="doc-list">
+                            <li>अपने नजदीकी बैंक ब्रांच में संपर्क करें</li>
+                            <li>KCC फॉर्म भरें + दस्तावेज जमा करें</li>
+                            <li>बैंक अधिकारी खेत का निरीक्षण करेगा</li>
+                            <li>अप्रूवल के बाद 15-20 दिन में कार्ड मिलेगा</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="doc-box">
+                        <div class="doc-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19.5 21a3 3 0 003-3v-4.5a3 3 0 00-3-3h-15a3 3 0 00-3 3V18a3 3 0 003 3h15zM1.5 10.146V6a3 3 0 013-3h5.379a2.25 2.25 0 011.59.659l2.122 2.121c.14.141.331.22.53.22H19.5a3 3 0 013 3v1.146A4.483 4.483 0 0019.5 9h-15a4.483 4.483 0 00-3 1.146z" />
+                            </svg>
+                            जरूरी दस्तावेज
+                        </div>
+                        <ul class="doc-list">
+                            <li>जमीन के कागजात (खतौनी/खसरा नंबर)</li>
+                            <li>आधार + पैन कार्ड (अनिवार्य)</li>
+                            <li>पासपोर्ट साइज फोटो (2 कॉपी)</li>
+                            <li>बैंक अकाउंट डिटेल्स</li>
+                            <li>मोबाइल नंबर (आधार से लिंक्ड)</li>
+                        </ul>
+                    </div>
+                    <div class="loading-bar"></div>
+                </div>
+            </div>
+
+            <!-- Aadhaar Card -->
+            <div class="id-card">
+                <div class="card-header">आधार कार्ड</div>
+                <div class="card-body">
+                    <div class="card-icon">🆔</div>
+                    <div class="card-desc">आधार कार्ड डाउनलोड या अपडेट करें</div>
+                    
+                    <div class="btn-group">
+                        <a href="https://appointments.uidai.gov.in/easearch.aspx" class="btn btn-apply" target="_blank">Apply Now</a>
+                        <a href="https://uidai.gov.in/" class="btn" target="_blank">Download</a>
+                    </div>
+                    
+                    <div class="doc-box">
+                        <div class="doc-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+                                <path fill-rule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z" clip-rule="evenodd" />
+                            </svg>
+                            कैसे बनवाएं?
+                        </div>
+                        <ul class="doc-list">
+                            <li>नजदीकी आधार सेन्टर ढूंढें (UIDAI वेबसाइट पर)</li>
+                            <li>फॉर्म भरें + बायोमेट्रिक डेटा दें</li>
+                            <li>12 डिजिट का आधार नंबर मिलेगा</li>
+                            <li>15 दिन में आधार कार्ड घर आएगा</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="doc-box">
+                        <div class="doc-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19.5 21a3 3 0 003-3v-4.5a3 3 0 00-3-3h-15a3 3 0 00-3 3V18a3 3 0 003 3h15zM1.5 10.146V6a3 3 0 013-3h5.379a2.25 2.25 0 011.59.659l2.122 2.121c.14.141.331.22.53.22H19.5a3 3 0 013 3v1.146A4.483 4.483 0 0019.5 9h-15a4.483 4.483 0 00-3 1.146z" />
+                            </svg>
+                            जरूरी दस्तावेज
+                        </div>
+                        <ul class="doc-list">
+                            <li>पहचान प्रमाण (पैन/वोटर ID/ड्राइविंग लाइसेंस)</li>
+                            <li>पता प्रमाण (बिजली बिल/राशन कार्ड)</li>
+                            <li>जन्म तिथि प्रमाण (जन्म प्रमाण पत्र/10वीं मार्कशीट)</li>
+                            <li>मोबाइल नंबर (रजिस्टर्ड)</li>
+                        </ul>
+                    </div>
+                    <div class="loading-bar"></div>
+                </div>
+            </div>
+
+            <!-- PAN Card -->
+            <div class="id-card">
+                <div class="card-header">पैन कार्ड</div>
+                <div class="card-body">
+                    <div class="card-icon">💳</div>
+                    <div class="card-desc">नया पैन कार्ड अप्लाई या करेक्शन करें</div>
+                    
+                    <div class="btn-group">
+                        <a href="https://www.onlineservices.nsdl.com/paam/endUserRegisterContact.html" class="btn btn-apply" target="_blank">Apply Now</a>
+                        <a href="https://www.onlineservices.nsdl.com/paam/requestDuplicateCopy.html" class="btn" target="_blank">Reprint</a>
+                    </div>
+                    
+                    <div class="doc-box">
+                        <div class="doc-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+                                <path fill-rule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z" clip-rule="evenodd" />
+                            </svg>
+                            कैसे अप्लाई करें
+                        </div>
+                        <ul class="doc-list">
+                            <li>NSDL या UTIITSL पोर्टल पर जाएं</li>
+                            <li>फॉर्म 49A भरें (इंडियन्स के लिए)</li>
+                            <li>डॉक्युमेंट्स अपलोड करके ₹107 फीस भरें</li>
+                            <li>15-20 दिन में पैन कार्ड घर आएगा</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="doc-box">
+                        <div class="doc-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19.5 21a3 3 0 003-3v-4.5a3 3 0 00-3-3h-15a3 3 0 00-3 3V18a3 3 0 003 3h15zM1.5 10.146V6a3 3 0 013-3h5.379a2.25 2.25 0 011.59.659l2.122 2.121c.14.141.331.22.53.22H19.5a3 3 0 013 3v1.146A4.483 4.483 0 0019.5 9h-15a4.483 4.483 0 00-3 1.146z" />
+                            </svg>
+                            जरूरी दस्तावेज
+                        </div>
+                        <ul class="doc-list">
+                            <li>आधार कार्ड (अनिवार्य)</li>
+                            <li>पासपोर्ट साइज फोटो (सफेद बैकग्राउंड)</li>
+                            <li>डेट ऑफ बर्थ प्रूफ (जन्म प्रमाण पत्र/10वीं सर्टिफिकेट)</li>
+                            <li>पता प्रमाण (3 महीने से कम पुराना नहीं)</li>
+                        </ul>
+                    </div>
+                    <div class="loading-bar"></div>
+                </div>
+            </div>
+
+            <!-- Passport -->
+            <div class="id-card">
+                <div class="card-header">पासपोर्ट</div>
+                <div class="card-body">
+                    <div class="card-icon">🛂</div>
+                    <div class="card-desc">नया पासपोर्ट अप्लाई या रीन्यू करें</div>
+                    
+                    <div class="btn-group">
+                        <a href="https://portal1.passportindia.gov.in/AppOnlineProject/welcomeLink" class="btn btn-apply" target="_blank">Apply Now</a>
+                        <a href="https://portal1.passportindia.gov.in/AppOnlineProject/statusTracker/trackStatusInpNew" class="btn" target="_blank">Track Status</a>
+                    </div>
+                    
+                    <div class="doc-box">
+                        <div class="doc-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+                                <path fill-rule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z" clip-rule="evenodd" />
+                            </svg>
+                            कैसे अप्लाई करें
+                        </div>
+                        <ul class="doc-list">
+                            <li>पासपोर्ट सेवा पोर्टल पर रजिस्टर करें</li>
+                            <li>फॉर्म भरें + अपॉइंटमेंट बुक करें</li>
+                            <li>PSK (पासपोर्ट सेवा केंद्र) पर जाएं</li>
+                            <li>डॉक्युमेंट वेरिफिकेशन + बायोमेट्रिक</li>
+                            <li>30-45 दिन में पासपोर्ट मिलेगा</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="doc-box">
+                        <div class="doc-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19.5 21a3 3 0 003-3v-4.5a3 3 0 00-3-3h-15a3 3 0 00-3 3V18a3 3 0 003 3h15zM1.5 10.146V6a3 3 0 013-3h5.379a2.25 2.25 0 011.59.659l2.122 2.121c.14.141.331.22.53.22H19.5a3 3 0 013 3v1.146A4.483 4.483 0 0019.5 9h-15a4.483 4.483 0 00-3 1.146z" />
+                            </svg>
+                            जरूरी दस्तावेज
+                        </div>
+                        <ul class="doc-list">
+                            <li>आधार + पैन कार्ड (अनिवार्य)</li>
+                            <li>बर्थ प्रूफ (जन्म प्रमाण पत्र/10वीं सर्टिफिकेट)</li>
+                            <li>पता प्रमाण (आधार/बिजली बिल/रेंट एग्रीमेंट)</li>
+                            <li>2 पासपोर्ट साइज फोटो (सफेद बैकग्राउंड)</li>
+                        </ul>
+                    </div>
+                    <div class="loading-bar"></div>
+                </div>
+            </div>
+
+            <!-- OCI Card -->
+            <div class="id-card">
+                <div class="card-header">OCI कार्ड</div>
+                <div class="card-body">
+                    <div class="card-icon">🌐</div>
+                    <div class="card-desc">विदेशी नागरिकों के लिए भारतीय कार्ड</div>
+                    
+                    <div class="btn-group">
+                        <a href="https://ociservices.gov.in/welcome" class="btn btn-apply" target="_blank">Apply Now</a>
+                        <a href="https://ociservices.gov.in/welcome" class="btn" target="_blank">Check Status</a>
+                    </div>
+                    
+                    <div class="doc-box">
+                        <div class="doc-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+                                <path fill-rule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z" clip-rule="evenodd" />
+                            </svg>
+                            कैसे अप्लाई करें
+                        </div>
+                        <ul class="doc-list">
+                            <li>OCI पोर्टल पर नया अकाउंट बनाएं</li>
+                            <li>फॉर्म भरें + दस्तावेज अपलोड करें</li>
+                            <li>₹15,000 फीस भरें (वयस्कों के लिए)</li>
+                            <li>नजदीकी भारतीय दूतावास में अपॉइंटमेंट लें</li>
+                            <li>6-8 हफ्ते में OCI कार्ड मिलेगा</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="doc-box">
+                        <div class="doc-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19.5 21a3 3 0 003-3v-4.5a3 3 0 00-3-3h-15a3 3 0 00-3 3V18a3 3 0 003 3h15zM1.5 10.146V6a3 3 0 013-3h5.379a2.25 2.25 0 011.59.659l2.122 2.121c.14.141.331.22.53.22H19.5a3 3 0 013 3v1.146A4.483 4.483 0 0019.5 9h-15a4.483 4.483 0 00-3 1.146z" />
+                            </svg>
+                            जरूरी दस्तावेज
+                        </div>
+                        <ul class="doc-list">
+                            <li>विदेशी पासपोर्ट (कम से कम 6 महीने वैलिड)</li>
+                            <li>भारतीय मूल का प्रमाण (जन्म प्रमाण पत्र/पुराना पासपोर्ट)</li>
+                            <li>2 पासपोर्ट साइज फोटो (सफेद बैकग्राउंड)</li>
+                            <li>निवास प्रमाण (विदेशी एड्रेस प्रूफ)</li>
+                        </ul>
+                    </div>
+                    <div class="loading-bar"></div>
+                </div>
+            </div>
+
+            <!-- Driving Licence -->
+            <div class="id-card">
+                <div class="card-header">ड्राइविंग लाइसेंस</div>
+                <div class="card-body">
+                    <div class="card-icon">🚗</div>
+                    <div class="card-desc">नया DL अप्लाई या रीन्यू करें</div>
+                    
+                    <div class="btn-group">
+                        <a href="https://parivahan.gov.in/" class="btn btn-apply" target="_blank">Apply Now</a>
+                        <a href="https://parivahan.gov.in/" class="btn" target="_blank">Renewal</a>
+                    </div>
+                    
+                    <div class="doc-box">
+                        <div class="doc-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+                                <path fill-rule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z" clip-rule="evenodd" />
+                            </svg>
+                            कैसे अप्लाई करें
+                        </div>
+                        <ul class="doc-list">
+                            <li>परिवहन विभाग की वेबसाइट पर जाएं</li>
+                            <li>लर्नर लाइसेंस के लिए फॉर्म भरें</li>
+                            <li>RTO ऑफिस में टेस्ट दें</li>
+                            <li>30 दिन बाद परमानेंट DL के लिए अप्लाई करें</li>
+                            <li>20 दिन में DL घर आएगा</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="doc-box">
+                        <div class="doc-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19.5 21a3 3 0 003-3v-4.5a3 3 0 00-3-3h-15a3 3 0 00-3 3V18a3 3 0 003 3h15zM1.5 10.146V6a3 3 0 013-3h5.379a2.25 2.25 0 011.59.659l2.122 2.121c.14.141.331.22.53.22H19.5a3 3 0 013 3v1.146A4.483 4.483 0 0019.5 9h-15a4.483 4.483 0 00-3 1.146z" />
+                            </svg>
+                            जरूरी दस्तावेज
+                        </div>
+                        <ul class="doc-list">
+                            <li>आधार कार्ड (अनिवार्य)</li>
+                            <li>पता प्रमाण (3 महीने से कम पुराना नहीं)</li>
+                            <li>आयु प्रमाण (10वीं सर्टिफिकेट/जन्म प्रमाण पत्र)</li>
+                            <li>मेडिकल सर्टिफिकेट (फॉर्म 1 और 1A)</li>
+                            <li>पासपोर्ट साइज फोटो (2 कॉपी)</li>
+                        </ul>
+                    </div>
+                    <div class="loading-bar"></div>
+                </div>
+            </div>
+
+            <!-- Voter ID -->
+            <div class="id-card">
+                <div class="card-header">वोटर ID</div>
+                <div class="card-body">
+                    <div class="card-icon">🗳️</div>
+                    <div class="card-desc">नया वोटर ID अप्लाई या करेक्शन करें</div>
+                    
+                    <div class="btn-group">
+                        <a href="https://voterportal.eci.gov.in/" class="btn btn-apply" target="_blank">Apply Now</a>
+                        <a href="https://electoralsearch.in/" class="btn" target="_blank">Search Name</a>
+                    </div>
+                    
+                    <div class="doc-box">
+                        <div class="doc-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+                                <path fill-rule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z" clip-rule="evenodd" />
+                            </svg>
+                            कैसे अप्लाई करें
+                        </div>
+                        <ul class="doc-list">
+                            <li>राष्ट्रीय मतदाता सेवा पोर्टल पर जाएं</li>
+                            <li>फॉर्म 6 भरें (नए वोटर के लिए)</li>
+                            <li>दस्तावेज अपलोड करें + सबमिट करें</li>
+                            <li>BLO आपके घर वेरिफिकेशन के लिए आएगा</li>
+                            <li>30 दिन में वोटर ID कार्ड मिलेगा</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="doc-box">
+                        <div class="doc-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19.5 21a3 3 0 003-3v-4.5a3 3 0 00-3-3h-15a3 3 0 00-3 3V18a3 3 0 003 3h15zM1.5 10.146V6a3 3 0 013-3h5.379a2.25 2.25 0 011.59.659l2.122 2.121c.14.141.331.22.53.22H19.5a3 3 0 013 3v1.146A4.483 4.483 0 0019.5 9h-15a4.483 4.483 0 00-3 1.146z" />
+                            </svg>
+                            जरूरी दस्तावेज
+                        </div>
+                        <ul class="doc-list">
+                            <li>आधार कार्ड (अनिवार्य)</li>
+                            <li>पता प्रमाण (बिजली बिल/रेंट एग्रीमेंट)</li>
+                            <li>आयु प्रमाण (10वीं सर्टिफिकेट/जन्म प्रमाण पत्र)</li>
+                            <li>1 पासपोर्ट साइज फोटो (अगर आधार पर नहीं है तो)</li>
+                        </ul>
+                    </div>
+                    <div class="loading-bar"></div>
+                </div>
+            </div>
+
+            <!-- ABHA Card -->
+            <div class="id-card">
+                <div class="card-header">ABHA कार्ड</div>
+                <div class="card-body">
+                    <div class="card-icon">🏥</div>
+                    <div class="card-desc">आयुष्मान भारत हेल्थ अकाउंट</div>
+                    
+                    <div class="btn-group">
+                        <a href="https://abha.abdm.gov.in/abha/v3/" class="btn btn-apply" target="_blank">Apply Now</a>
+                        <a href="https://abha.abdm.gov.in/abha/v3/" class="btn" target="_blank">Download</a>
+                    </div>
+                    
+                    <div class="doc-box">
+                        <div class="doc-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+                                <path fill-rule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z" clip-rule="evenodd" />
+                            </svg>
+                            कैसे बनवाएं?
+                        </div>
+                        <ul class="doc-list">
+                            <li>ABHA पोर्टल पर जाएं</li>
+                            <li>आधार नंबर डालें + OTP से वेरिफाई करें</li>
+                            <li>हेल्थ ID जनरेट होगा (14 डिजिट का)</li>
+                            <li>अपना मोबाइल नंबर और ईमेल जोड़ें</li>
+                            <li>ABHA कार्ड तुरंत डाउनलोड करें</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="doc-box">
+                        <div class="doc-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19.5 21a3 3 0 003-3v-4.5a3 3 0 00-3-3h-15a3 3 0 00-3 3V18a3 3 0 003 3h15zM1.5 10.146V6a3 3 0 013-3h5.379a2.25 2.25 0 011.59.659l2.122 2.121c.14.141.331.22.53.22H19.5a3 3 0 013 3v1.146A4.483 4.483 0 0019.5 9h-15a4.483 4.483 0 00-3 1.146z" />
+                            </svg>
+                            जरूरी दस्तावेज
+                        </div>
+                        <ul class="doc-list">
+                            <li>आधार कार्ड (अनिवार्य)</li>
+                            <li>मोबाइल नंबर (आधार से लिंक्ड)</li>
+                            <li>ईमेल ID (ऑप्शनल)</li>
+                        </ul>
+                    </div>
+                    <div class="loading-bar"></div>
+                </div>
+            </div>
+
+            <!-- ABC ID -->
+            <div class="id-card">
+                <div class="card-header">ABC ID</div>
+                <div class="card-body">
+                    <div class="card-icon">🐕</div>
+                    <div class="card-desc">पशु जन्म नियंत्रण रजिस्ट्रेशन</div>
+                    
+                    <div class="btn-group">
+                        <a href="https://abcd.gov.in/" class="btn btn-apply" target="_blank">Apply Now</a>
+                        <a href="https://abcd.gov.in/" class="btn" target="_blank">Check Status</a>
+                    </div>
+                    
+                    <div class="doc-box">
+                        <div class="doc-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+                                <path fill-rule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z" clip-rule="evenodd" />
+                            </svg>
+                            कैसे अप्लाई करें
+                        </div>
+                        <ul class="doc-list">
+                            <li>ABC पोर्टल पर रजिस्टर करें</li>
+                            <li>पशु की डिटेल्स भरें (प्रजाति, उम्र, लिंग)</li>
+                            <li>स्टेरिलाइजेशन सेंटर में अपॉइंटमेंट लें</li>
+                            <li>ऑपरेशन के बाद ABC ID कार्ड मिलेगा</li>
+                            <li>कार्ड ऑनलाइन डाउनलोड कर सकते हैं</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="doc-box">
+                        <div class="doc-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19.5 21a3 3 0 003-3v-4.5a3 3 0 00-3-3h-15a3 3 0 00-3 3V18a3 3 0 003 3h15zM1.5 10.146V6a3 3 0 013-3h5.379a2.25 2.25 0 011.59.659l2.122 2.121c.14.141.331.22.53.22H19.5a3 3 0 013 3v1.146A4.483 4.483 0 0019.5 9h-15a4.483 4.483 0 00-3 1.146z" />
+                            </svg>
+                            जरूरी दस्तावेज
+                        </div>
+                        <ul class="doc-list">
+                            <li>पशु मालिक का आधार कार्ड</li>
+                            <li>पशु की फोटो (ऑप्शनल)</li>
+                            <li>पता प्रमाण (अगर पशु आश्रय का है तो)</li>
+                        </ul>
+                    </div>
+                    <div class="loading-bar"></div>
+                </div>
+            </div>
+
+            <!-- Samagra ID -->
+            <div class="id-card">
+                <div class="card-header">समग्र ID</div>
+                <div class="card-body">
+                    <div class="card-icon">👨‍👩‍👧‍👦</div>
+                    <div class="card-desc">परिवार आईडी फॉर सरकारी योजनाएं</div>
+                    
+                    <div class="btn-group">
+                        <a href="https://samagra.gov.in/" class="btn btn-apply" target="_blank">Apply Now</a>
+                        <a href="https://samagra.gov.in/" class="btn" target="_blank">Check Status</a>
+                    </div>
+                    
+                    <div class="doc-box">
+                        <div class="doc-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+                                <path fill-rule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z" clip-rule="evenodd" />
+                            </svg>
+                            कैसे बनवाएं?
+                        </div>
+                        <ul class="doc-list">
+                            <li>समग्र पोर्टल पर जाएं या CSC पर जाएं</li>
+                            <li>परिवार के मुखिया का आधार डिटेल्स दें</li>
+                            <li>परिवार के सभी सदस्यों का डेटा भरें</li>
+                            <li>समग्र ID जनरेट होगा (12 डिजिट का)</li>
+                            <li>15 दिन में कार्ड मिलेगा</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="doc-box">
+                        <div class="doc-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19.5 21a3 3 0 003-3v-4.5a3 3 0 00-3-3h-15a3 3 0 00-3 3V18a3 3 0 003 3h15zM1.5 10.146V6a3 3 0 013-3h5.379a2.25 2.25 0 011.59.659l2.122 2.121c.14.141.331.22.53.22H19.5a3 3 0 013 3v1.146A4.483 4.483 0 0019.5 9h-15a4.483 4.483 0 00-3 1.146z" />
+                            </svg>
+                            जरूरी दस्तावेज
+                        </div>
+                        <ul class="doc-list">
+                            <li>परिवार के सभी सदस्यों का आधार</li>
+                            <li>मुखिया का मोबाइल नंबर</li>
+                            <li>परिवार का पता प्रमाण</li>
+                            <li>राशन कार्ड (अगर हो तो)</li>
+                        </ul>
+                    </div>
+                    <div class="loading-bar"></div>
+                </div>
+            </div>
+
+            <!-- Pension card -->
+            <div class="id-card">
+                <div class="card-header">पेंशन कार्ड</div>
+                <div class="card-body">
+                    <div class="card-icon">👴</div>
+                    <div class="card-desc">वृद्धावस्था/विधवा/विकलांग पेंशन</div>
+                    
+                    <div class="btn-group">
+                        <a href="https://npscra.nsdl.co.in/" class="btn btn-apply" target="_blank">Apply Now</a>
+                        <a href="https://npscra.nsdl.co.in/" class="btn" target="_blank">Check Status</a>
+                    </div>
+                    
+                    <div class="doc-box">
+                        <div class="doc-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+                                <path fill-rule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z" clip-rule="evenodd" />
+                            </svg>
+                            कैसे अप्लाई करें
+                        </div>
+                        <ul class="doc-list">
+                            <li>NSDL पोर्टल पर जाएं या CSC पर जाएं</li>
+                            <li>पेंशन योजना का चयन करें</li>
+                            <li>आधार से वेरिफाई करें + फॉर्म भरें</li>
+                            <li>बैंक अकाउंट डिटेल्स जोड़ें</li>
+                            <li>30 दिन में पेंशन कार्ड मिलेगा</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="doc-box">
+                        <div class="doc-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19.5 21a3 3 0 003-3v-4.5a3 3 0 00-3-3h-15a3 3 0 00-3 3V18a3 3 0 003 3h15zM1.5 10.146V6a3 3 0 013-3h5.379a2.25 2.25 0 011.59.659l2.122 2.121c.14.141.331.22.53.22H19.5a3 3 0 013 3v1.146A4.483 4.483 0 0019.5 9h-15a4.483 4.483 0 00-3 1.146z" />
+                            </svg>
+                            जरूरी दस्तावेज
+                        </div>
+                        <ul class="doc-list">
+                            <li>आधार कार्ड (अनिवार्य)</li>
+                            <li>आयु प्रमाण (60+ वर्ष के लिए)</li>
+                            <li>विधवा प्रमाण पत्र (अगर विधवा पेंशन के लिए)</li>
+                            <li>विकलांगता प्रमाण पत्र (40% से अधिक)</li>
+                            <li>बैंक पासबुक (जॉइंट अकाउंट नहीं)</li>
+                        </ul>
+                    </div>
+                    <div class="loading-bar"></div>
+                </div>
+            </div>
+
+            <!-- Ration Card -->
+            <div class="id-card">
+                <div class="card-header">राशन कार्ड</div>
+                <div class="card-body">
+                    <div class="card-icon">🛒</div>
+                    <div class="card-desc">नया राशन कार्ड अप्लाई या अपडेट करें</div>
+                    
+                    <div class="btn-group">
+                        <a href="https://nfsa.gov.in/portal/state_portals" class="btn btn-apply" target="_blank">Apply Now</a>
+                        <a href="https://nfsa.gov.in/portal/state_portals" class="btn" target="_blank">Check Status</a>
+                    </div>
+                    
+                    <div class="doc-box">
+                        <div class="doc-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 15a3 3 0 100-6 3 3 0 000 6z" />
+                                <path fill-rule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 010-1.113zM17.25 12a5.25 5.25 0 11-10.5 0 5.25 5.25 0 0110.5 0z" clip-rule="evenodd" />
+                            </svg>
+                            कैसे अप्लाई करें
+                        </div>
+                        <ul class="doc-list">
+                            <li>अपने राज्य के खाद्य विभाग पोर्टल पर जाएं</li>
+                            <li>फॉर्म भरें + परिवार के सदस्यों का डेटा दें</li>
+                            <li>BPL/APL श्रेणी का चयन करें</li>
+                            <li>अधिकारी घर जांच के लिए आएगा</li>
+                            <li>45 दिन में राशन कार्ड मिलेगा</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="doc-box">
+                        <div class="doc-title">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19.5 21a3 3 0 003-3v-4.5a3 3 0 00-3-3h-15a3 3 0 00-3 3V18a3 3 0 003 3h15zM1.5 10.146V6a3 3 0 013-3h5.379a2.25 2.25 0 011.59.659l2.122 2.121c.14.141.331.22.53.22H19.5a3 3 0 013 3v1.146A4.483 4.483 0 0019.5 9h-15a4.483 4.483 0 00-3 1.146z" />
+                            </svg>
+                            जरूरी दस्तावेज
+                        </div>
+                        <ul class="doc-list">
+                            <li>परिवार के सभी सदस्यों का आधार</li>
+                            <li>मकान का मालिकाना हक/किराया प्रमाण</li>
+                            <li>परिवार के मुखिया का फोटो</li>
+                            <li>बिजली बिल/पानी बिल (पता प्रमाण)</li>
+                            <li>आय प्रमाण (BPL के लिए)</li>
+                        </ul>
+                    </div>
+                    <div class="loading-bar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        &copy; 2023 YojanaGuru.com - सर्वाधिकार सुरक्षित<br>
+        <small>सरकारी योजनाओं और सेवाओं के लिए आपका विश्वसनीय पार्टनर</small>
+    </div>
+</body>
+</html>

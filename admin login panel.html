@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="hi-IN" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YojanaGuru - Admin Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+    :root {
+      --primary-color: #2E7D32;
+      --primary-dark: #1B5E20;
+      --primary-light: #81C784;
+      --secondary-color: #FF9800;
+      --dark-color: #263238;
+      --light-color: #f5f5f5;
+      --gray-color: #757575;
+      --white: #ffffff;
+      --black: #000000;
+      --font-main: 'Noto Sans Devanagari', sans-serif;
+      --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background-color: var(--light-color);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .admin-login-container {
+      background-color: var(--white);
+      border-radius: 8px;
+      box-shadow: var(--box-shadow);
+      width: 100%;
+      max-width: 450px;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .admin-logo {
+      margin-bottom: 30px;
+    }
+
+    .admin-logo img {
+      height: 50px;
+    }
+
+    .admin-login-container h1 {
+      color: var(--primary-color);
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+    }
+
+    .admin-login-form .form-group {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .admin-login-form label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--dark-color);
+      font-weight: 500;
+    }
+
+    .admin-login-form input {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-family: var(--font-main);
+    }
+
+    .admin-login-btn {
+      width: 100%;
+      padding: 12px;
+      background-color: var(--primary-color);
+      color: var(--white);
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: var(--transition);
+      margin-top: 10px;
+      font-weight: 500;
+    }
+
+    .admin-login-btn:hover {
+      background-color: var(--primary-dark);
+    }
+
+    .admin-login-footer {
+      margin-top: 20px;
+      color: var(--gray-color);
+    }
+
+    .error-message {
+      color: #d32f2f;
+      margin-top: 10px;
+      display: none;
+    }
+
+    @media (max-width: 480px) {
+      .admin-login-container {
+        padding: 30px 20px;
+        margin: 0 15px;
+      }
+    }
+    </style>
+</head>
+<body>
+    <div class="admin-login-container">
+        <div class="admin-logo">
+            <img src="/assets/images/logos/logo-main.svg" alt="YojanaGuru Admin">
+        </div>
+        <h1>एडमिन लॉगिन</h1>
+        <form class="admin-login-form" id="adminLoginForm">
+            <div class="form-group">
+                <label for="adminUsername">यूजरनेम</label>
+                <input type="text" id="adminUsername" required>
+            </div>
+            <div class="form-group">
+                <label for="adminPassword">पासवर्ड</label>
+                <input type="password" id="adminPassword" required>
+            </div>
+            <div class="error-message" id="loginError">
+                गलत यूजरनेम या पासवर्ड। कृपया पुनः प्रयास करें।
+            </div>
+            <button type="submit" class="admin-login-btn">लॉग इन</button>
+        </form>
+        <div class="admin-login-footer">
+            <p>केवल अधिकृत व्यक्तियों के लिए</p>
+        </div>
+    </div>
+
+    <script>
+    document.getElementById('adminLoginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const username = document.getElementById('adminUsername').value;
+        const password = document.getElementById('adminPassword').value;
+        const errorElement = document.getElementById('loginError');
+        
+        // Hide error message initially
+        errorElement.style.display = 'none';
+        
+        // Simple validation
+        if (!username || !password) {
+            errorElement.textContent = 'कृपया यूजरनेम और पासवर्ड दर्ज करें';
+            errorElement.style.display = 'block';
+            return;
+        }
+        
+        // For demo purposes - in real app, make API call to verify credentials
+        if (username === 'admin' && password === 'admin@123') {
+            // Successful login - store token and redirect
+            localStorage.setItem('adminToken', 'demo_admin_token');
+            window.location.href = '/admin-dashboard.html';
+        } else {
+            errorElement.textContent = 'गलत यूजरनेम या पासवर्ड। कृपया पुनः प्रयास करें।';
+            errorElement.style.display = 'block';
+        }
+    });
+    </script>
+</body>
+</html>
